@@ -440,7 +440,7 @@
 
   .cabin-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
 
-  .cabin-photo-placeholder {
+  .cabin-photo-placeholder { position: relative;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -823,6 +823,9 @@
     align-items: center;
     gap: 1rem;
     margin-top: 2.5rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .carousel-track-wrap {
@@ -1187,16 +1190,14 @@
 
       <!-- Cabin 1 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #1a3a2a, #2e6b8a);">
-          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
-          <a href="https://www.vrbo.com/715096" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #1a3a2a, #2e6b8a); padding:0; overflow:hidden;">
+          <img src="https://media.vrbo.com/lodging/102000000/101380000/101376100/101376066/c86b2327.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
+          <a href="https://www.vrbo.com/715096" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
         </div>
         <div class="cabin-body">
           <p class="cabin-name">Cabin 1</p>
           <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-specs">
-            <div class="cabin-spec">🛏️ <span>— beds</span></div>
-            <div class="cabin-spec">🛁 <span>— baths</span></div>
+          <div class="cabin-spec">🛁 <span>— baths</span></div>
             <div class="cabin-spec">👥 <span>Sleeps —</span></div>
           </div>
           <div class="cabin-dual-price">
@@ -1220,16 +1221,14 @@
 
       <!-- Cabin 2 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #2e6b8a, #52b788);">
-          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
-          <a href="https://www.vrbo.com/3123712" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #2e6b8a, #52b788); padding:0; overflow:hidden;">
+          <img src="https://media.vrbo.com/lodging/90000000/89470000/89461800/89461721/b046fd01.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
+          <a href="https://www.vrbo.com/3123712" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
         </div>
         <div class="cabin-body">
           <p class="cabin-name">Cabin 2</p>
           <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-specs">
-            <div class="cabin-spec">🛏️ <span>— beds</span></div>
-            <div class="cabin-spec">🛁 <span>— baths</span></div>
+          <div class="cabin-spec">🛁 <span>— baths</span></div>
             <div class="cabin-spec">👥 <span>Sleeps —</span></div>
           </div>
           <div class="cabin-dual-price">
@@ -1253,16 +1252,14 @@
 
       <!-- Cabin 3 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #52b788, #1a3a2a);">
-          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
-          <a href="https://www.vrbo.com/715048" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #52b788, #1a3a2a); padding:0; overflow:hidden;">
+          <img src="https://media.vrbo.com/lodging/22000000/21640000/21633400/21633379/82edcc8f.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
+          <a href="https://www.vrbo.com/715048" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
         </div>
         <div class="cabin-body">
           <p class="cabin-name">Cabin 3</p>
           <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-specs">
-            <div class="cabin-spec">🛏️ <span>— beds</span></div>
-            <div class="cabin-spec">🛁 <span>— baths</span></div>
+          <div class="cabin-spec">🛁 <span>— baths</span></div>
             <div class="cabin-spec">👥 <span>Sleeps —</span></div>
           </div>
           <div class="cabin-dual-price">
@@ -1286,16 +1283,14 @@
 
       <!-- Cabin 4 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #5c3d2e, #2e6b8a);">
-          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
-          <a href="https://www.vrbo.com/812805" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #5c3d2e, #2e6b8a); padding:0; overflow:hidden;">
+          <img src="https://media.vrbo.com/lodging/22000000/21870000/21866900/21866826/c6f1bf54.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
+          <a href="https://www.vrbo.com/812805" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
         </div>
         <div class="cabin-body">
           <p class="cabin-name">Cabin 4</p>
           <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-specs">
-            <div class="cabin-spec">🛏️ <span>— beds</span></div>
-            <div class="cabin-spec">🛁 <span>— baths</span></div>
+          <div class="cabin-spec">🛁 <span>— baths</span></div>
             <div class="cabin-spec">👥 <span>Sleeps —</span></div>
           </div>
           <div class="cabin-dual-price">
@@ -1319,16 +1314,14 @@
 
       <!-- Cabin 5 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #1a3a2a, #52b788);">
-          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
-          <a href="https://www.vrbo.com/3790919" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #1a3a2a, #52b788); padding:0; overflow:hidden;">
+          <img src="https://media.vrbo.com/lodging/102000000/101380000/101376100/101376066/c86b2327.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
+          <a href="https://www.vrbo.com/3790919" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
         </div>
         <div class="cabin-body">
           <p class="cabin-name">Cabin 5</p>
           <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-specs">
-            <div class="cabin-spec">🛏️ <span>— beds</span></div>
-            <div class="cabin-spec">🛁 <span>— baths</span></div>
+          <div class="cabin-spec">🛁 <span>— baths</span></div>
             <div class="cabin-spec">👥 <span>Sleeps —</span></div>
           </div>
           <div class="cabin-dual-price">
@@ -1370,8 +1363,6 @@
         <div class="carousel-track" id="carousel-track">
 
           <div class="carousel-card">
-            <div class="carousel-img" style="background:linear-gradient(135deg,#5c3d2e,#a0522d); min-height:260px;">
-            </div>
             <div class="carousel-body">
               <p class="excursion-name">ATV Rentals</p>
               <p class="excursion-desc">Hit the mountain trails on ATVs — nothing but trees, dirt, and cousin energy. Perfect for a morning ride before we get the rest of the day started.</p>
@@ -1383,8 +1374,6 @@
           </div>
 
           <div class="carousel-card">
-            <div class="carousel-img" style="background:linear-gradient(135deg,#1a3a2a,#2e6b8a); min-height:260px;">
-            </div>
             <div class="carousel-body">
               <p class="excursion-name">WISP Resort</p>
               <p class="excursion-desc">Mountain coaster, scenic chairlift, mini golf, and ropes course. Great mix of thrills and laughs — perfect for a full group day with passes that cover multiple rides.</p>
@@ -1397,8 +1386,6 @@
           </div>
 
           <div class="carousel-card">
-            <div class="carousel-img" style="background:linear-gradient(135deg,#2e6b8a,#52b788); min-height:260px;">
-            </div>
             <div class="carousel-body">
               <p class="excursion-name">Deep Creek Fun Zone</p>
               <p class="excursion-desc">Go-karts, laser tag, bumper boats, mini golf, and arcade — all in one spot. Staff is great with large groups and there's a restaurant on site. Rain plan approved.</p>
