@@ -841,6 +841,19 @@
           <label>Phone / Email</label>
           <input type="text" id="rsvp-contact" placeholder="How to reach you" />
         </div>
+        <div class="form-row">
+          <label>Dietary / Needs</label>
+          <input type="text" id="rsvp-diet" placeholder="Allergies, accessibility, etc." />
+        </div>
+        <div class="form-row">
+          <label>Will you need a ride?</label>
+          <select id="rsvp-ride">
+            <option value="">— Select —</option>
+            <option>Nope, I'm driving!</option>
+            <option>Yes, I need a ride</option>
+            <option>I can take people with me</option>
+          </select>
+        </div>
 
         <div style="border-top:1px solid rgba(255,255,255,0.1); margin-top:1.5rem; padding-top:1.5rem;">
           <p style="font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--leaf-light); margin-bottom:1.25rem;">Help Us Plan 🗳️</p>
@@ -1152,8 +1165,15 @@
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const offset = 70; // account for fixed nav height
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
     });
   });
 
