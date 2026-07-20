@@ -418,6 +418,8 @@
   .airbnb-section { background: var(--warm-white); }
 
   /* VRBO CABIN CARDS */
+  .airbnb-section { background: var(--warm-white); }
+
   .airbnb-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -433,44 +435,51 @@
     border-radius: 18px;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.07);
-    transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
 
   .cabin-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
 
-  .cabin-photo-placeholder { position: relative;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  .cabin-photo {
     position: relative;
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
   }
 
-  .cabin-photo-label {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.6);
-    font-style: italic;
+  .cabin-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .cabin-vrbo-badge {
-    background: rgba(255,255,255,0.15);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 6px 14px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.9);
+    color: var(--forest);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 12px;
     border-radius: 100px;
     text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.3);
     transition: background 0.2s;
   }
 
-  .cabin-vrbo-badge:hover { background: rgba(255,255,255,0.25); }
+  .cabin-vrbo-badge:hover { background: white; }
 
-  .cabin-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+  .cabin-body {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
 
   .cabin-name {
     font-family: 'Fraunces', serif;
@@ -483,22 +492,6 @@
   .cabin-sub {
     font-size: 0.78rem;
     color: #8a9e94;
-    margin-bottom: 1rem;
-  }
-
-  .cabin-specs {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 1.25rem;
-  }
-
-  .cabin-spec {
-    font-size: 0.82rem;
-    color: var(--forest);
-    display: flex;
-    align-items: center;
-    gap: 4px;
   }
 
   .cabin-dual-price {
@@ -507,8 +500,6 @@
     border: 1px solid rgba(0,0,0,0.08);
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 1rem;
-    margin-top: auto;
   }
 
   .dual-price-block {
@@ -524,7 +515,7 @@
   .dual-price-block:last-child { background: rgba(46,107,138,0.04); }
 
   .dual-date {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -533,26 +524,16 @@
 
   .dual-pp {
     font-family: 'Fraunces', serif;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--forest);
     line-height: 1;
   }
 
-  .dual-label {
-    font-size: 0.68rem;
-    color: #8a9e94;
-  }
+  .dual-label { font-size: 0.68rem; color: #8a9e94; }
+  .dual-total { font-size: 0.68rem; color: #8a9e94; }
 
-  .dual-total {
-    font-size: 0.68rem;
-    color: #8a9e94;
-  }
-
-  .dual-divider {
-    width: 1px;
-    background: rgba(0,0,0,0.08);
-  }
+  .dual-divider { width: 1px; background: rgba(0,0,0,0.08); }
 
   .vote-btn {
     display: block;
@@ -954,7 +935,7 @@
   <div class="container">
     <span class="section-label">Lock it in</span>
     <h2 class="section-title">RSVP & Claim Your Spot</h2>
-    <p class="section-desc">Fill out the form below to officially claim your spot by August 15. We'll be in touch with trip details once we finalize the cabin!</p>
+    <p class="section-desc">Fill out the form below to officially claim your spot. We'll be in touch with trip details once we finalize the cabin!</p>
 
     <div class="rsvp-grid">
       <div class="rsvp-card">
@@ -1130,19 +1111,17 @@
     <h2 class="section-title">Vote on a Cabin 🏕️</h2>
     <p class="section-desc">All prices per person based on 15 people splitting the cost. Pick your fave!</p>
 
-    <div class="airbnb-grid">
+        <div class="airbnb-grid">
 
-      <!-- Cabin 1 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #1a3a2a, #2e6b8a); padding:0; overflow:hidden;">
-          <img src="https://media.vrbo.com/lodging/102000000/101380000/101376100/101376066/c86b2327.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
-          <a href="https://www.vrbo.com/715096" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
+        <div class="cabin-photo">
+          <img src="https://media.vrbo.com/lodging/102000000/101380000/101376100/101376066/c86b2327.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 1" />
+          <a href="https://www.vrbo.com/715096" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
         </div>
         <div class="cabin-body">
-          <p class="cabin-name">Cabin 1</p>
-          <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-spec">🛁 <span>— baths</span></div>
-            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          <div>
+            <p class="cabin-name">Cabin 1</p>
+            <p class="cabin-sub">Deep Creek Lake, MD</p>
           </div>
           <div class="cabin-dual-price">
             <div class="dual-price-block">
@@ -1162,18 +1141,15 @@
           <button class="vote-btn" id="vote1" onclick="vote(1)">👍 Vote for This One</button>
         </div>
       </div>
-
-      <!-- Cabin 2 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #2e6b8a, #52b788); padding:0; overflow:hidden;">
-          <img src="https://media.vrbo.com/lodging/90000000/89470000/89461800/89461721/b046fd01.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
-          <a href="https://www.vrbo.com/3123712" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
+        <div class="cabin-photo">
+          <img src="https://media.vrbo.com/lodging/90000000/89470000/89461800/89461721/b046fd01.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 2" />
+          <a href="https://www.vrbo.com/3123712" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
         </div>
         <div class="cabin-body">
-          <p class="cabin-name">Cabin 2</p>
-          <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-spec">🛁 <span>— baths</span></div>
-            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          <div>
+            <p class="cabin-name">Cabin 2</p>
+            <p class="cabin-sub">Deep Creek Lake, MD</p>
           </div>
           <div class="cabin-dual-price">
             <div class="dual-price-block">
@@ -1193,18 +1169,15 @@
           <button class="vote-btn" id="vote2" onclick="vote(2)">👍 Vote for This One</button>
         </div>
       </div>
-
-      <!-- Cabin 3 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #52b788, #1a3a2a); padding:0; overflow:hidden;">
-          <img src="https://media.vrbo.com/lodging/22000000/21640000/21633400/21633379/82edcc8f.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
-          <a href="https://www.vrbo.com/715048" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
+        <div class="cabin-photo">
+          <img src="https://media.vrbo.com/lodging/22000000/21640000/21633400/21633379/82edcc8f.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 3" />
+          <a href="https://www.vrbo.com/715048" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
         </div>
         <div class="cabin-body">
-          <p class="cabin-name">Cabin 3</p>
-          <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-spec">🛁 <span>— baths</span></div>
-            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          <div>
+            <p class="cabin-name">Cabin 3</p>
+            <p class="cabin-sub">Deep Creek Lake, MD</p>
           </div>
           <div class="cabin-dual-price">
             <div class="dual-price-block">
@@ -1224,18 +1197,15 @@
           <button class="vote-btn" id="vote3" onclick="vote(3)">👍 Vote for This One</button>
         </div>
       </div>
-
-      <!-- Cabin 4 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #5c3d2e, #2e6b8a); padding:0; overflow:hidden;">
-          <img src="https://media.vrbo.com/lodging/22000000/21870000/21866900/21866826/c6f1bf54.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
-          <a href="https://www.vrbo.com/812805" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
+        <div class="cabin-photo">
+          <img src="https://media.vrbo.com/lodging/22000000/21870000/21866900/21866826/c6f1bf54.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 4" />
+          <a href="https://www.vrbo.com/812805" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
         </div>
         <div class="cabin-body">
-          <p class="cabin-name">Cabin 4</p>
-          <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-spec">🛁 <span>— baths</span></div>
-            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          <div>
+            <p class="cabin-name">Cabin 4</p>
+            <p class="cabin-sub">Deep Creek Lake, MD</p>
           </div>
           <div class="cabin-dual-price">
             <div class="dual-price-block">
@@ -1255,18 +1225,15 @@
           <button class="vote-btn" id="vote4" onclick="vote(4)">👍 Vote for This One</button>
         </div>
       </div>
-
-      <!-- Cabin 5 -->
       <div class="cabin-card">
-        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #1a3a2a, #52b788); padding:0; overflow:hidden;">
-          <img src="https://media.vrbo.com/lodging/102000000/101380000/101376100/101376066/c86b2327.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
-          <a href="https://www.vrbo.com/3790919" target="_blank" class="cabin-vrbo-badge" style="position:absolute;top:10px;right:10px;">View on VRBO →</a>
+        <div class="cabin-photo">
+          <img src="https://media.vrbo.com/lodging/102000000/101380000/101376100/101376066/c86b2327.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 5" />
+          <a href="https://www.vrbo.com/3790919" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
         </div>
         <div class="cabin-body">
-          <p class="cabin-name">Cabin 5</p>
-          <p class="cabin-sub">Deep Creek Lake, MD</p>
-          <div class="cabin-spec">🛁 <span>— baths</span></div>
-            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          <div>
+            <p class="cabin-name">Cabin 5</p>
+            <p class="cabin-sub">Deep Creek Lake, MD</p>
           </div>
           <div class="cabin-dual-price">
             <div class="dual-price-block">
@@ -1286,7 +1253,6 @@
           <button class="vote-btn" id="vote5" onclick="vote(5)">👍 Vote for This One</button>
         </div>
       </div>
-
     </div>
     <p style="font-size:0.78rem;color:#8a9e94;margin-top:1rem;">Pricing from VRBO for 15 guests, 2-night stay.</p>
   </div>
@@ -1302,32 +1268,36 @@
     <p class="section-desc">Deep Creek is loaded — swipe through what we can get into while we're out there.</p>
 
     <div class="excursion-side-grid">
+
       <div class="excursion-side-card">
-            <div class="carousel-body">
-              <p class="excursion-name">ATV Rentals</p>
-              <p class="excursion-desc">Hit the mountain trails on ATVs — nothing but trees, dirt, and cousin energy. Perfect for a morning ride before we get the rest of the day started.</p>
-              <div class="excursion-tags">
-                <span class="excursion-tag tag-vibe">🔥 High Energy</span>
-                <span class="excursion-tag tag-type">Outdoor</span>
-              </div>
+        <p class="excursion-name">🏍️ ATV Rentals</p>
+        <p class="excursion-desc">Hit the mountain trails on ATVs — nothing but trees, dirt, and cousin energy. Perfect for a morning ride before we get the rest of the day started.</p>
+        <div class="excursion-tags">
+          <span class="excursion-tag tag-vibe">🔥 High Energy</span>
+          <span class="excursion-tag tag-type">Outdoor</span>
+        </div>
+      </div>
+
       <div class="excursion-side-card">
-            <div class="carousel-body">
-              <p class="excursion-name">WISP Resort</p>
-              <p class="excursion-desc">Mountain coaster, scenic chairlift, mini golf, and ropes course. Great mix of thrills and laughs — perfect for a full group day with passes that cover multiple rides.</p>
-              <div class="excursion-tags">
-                <span class="excursion-tag tag-vibe">😄 Group Fun</span>
-                <span class="excursion-tag tag-rating">⭐ 4.5</span>
-                <span class="excursion-tag tag-type">Adventure</span>
-              </div>
+        <p class="excursion-name">⛷️ WISP Resort</p>
+        <p class="excursion-desc">Mountain coaster, scenic chairlift, mini golf, and ropes course. Great mix of thrills and laughs — perfect for a full group day with passes that cover multiple rides.</p>
+        <div class="excursion-tags">
+          <span class="excursion-tag tag-vibe">😄 Group Fun</span>
+          <span class="excursion-tag tag-rating">⭐ 4.5</span>
+          <span class="excursion-tag tag-type">Adventure</span>
+        </div>
+      </div>
+
       <div class="excursion-side-card">
-            <div class="carousel-body">
-              <p class="excursion-name">Deep Creek Fun Zone</p>
-              <p class="excursion-desc">Go-karts, laser tag, bumper boats, mini golf, and arcade — all in one spot. Staff is great with large groups and there's a restaurant on site. Rain plan approved.</p>
-              <div class="excursion-tags">
-                <span class="excursion-tag tag-vibe">🌧️ Rain Plan</span>
-                <span class="excursion-tag tag-rating">⭐ 4.3</span>
-                <span class="excursion-tag tag-type">Indoor/Out</span>
-              </div>
+        <p class="excursion-name">🎱 Deep Creek Fun Zone</p>
+        <p class="excursion-desc">Go-karts, laser tag, bumper boats, mini golf, and arcade — all in one spot. Staff is great with large groups and there's a restaurant on site. Rain plan approved.</p>
+        <div class="excursion-tags">
+          <span class="excursion-tag tag-vibe">🌧️ Rain Plan</span>
+          <span class="excursion-tag tag-rating">⭐ 4.3</span>
+          <span class="excursion-tag tag-type">Indoor/Out</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
