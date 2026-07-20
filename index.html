@@ -802,7 +802,7 @@
 
   <span class="hero-badge">Deep Creek Lake, Maryland</span>
   <h1 class="hero-title">The Cousins Take<br><span>Deep Creek</span></h1>
-  <p class="hero-subtitle">October 9–11, 2026 · Mountain magic, lake vibes, and cousin chaos ✨</p>
+  <p class="hero-subtitle">October 9-11, 2026 · Mountain magic, lake vibes, and cousin chaos ✨</p>
 
   <div class="hero-details">
     <div class="hero-detail">
@@ -1151,9 +1151,9 @@
 
 <script>
   // ============================================================
-  // CONFIGURATION — paste your Formspree form ID here
-  // e.g. if your form URL is formspree.io/f/xbjvkpqz, put 'xbjvkpqz'
-  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+  // CONFIGURATION
+  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // your Formspree form ID
+  const SHEETDB_URL  = 'https://sheetdb.io/api/v1/gkcjrncc1syj3';
   const RSVP_GOAL    = 15;
   // ============================================================
 
@@ -1170,13 +1170,22 @@
     });
   });
 
-  let localCount = 0;
-
   function updateCounter(count) {
     const pct = Math.min(100, Math.round((count / RSVP_GOAL) * 100));
     document.getElementById('rsvp-count').textContent = count;
     document.getElementById('counter-bar').style.width = pct + '%';
   }
+
+  // Load real count from SheetDB
+  async function loadCount() {
+    try {
+      const res = await fetch(SHEETDB_URL + '/count');
+      const data = await res.json();
+      updateCounter(data.rows || 0);
+    } catch(e) { console.log('Count load skipped:', e.message); }
+  }
+
+  loadCount();
 
   // Submit RSVP
   async function handleRSVP() {
@@ -1212,9 +1221,26 @@
       } catch(e) {}
     }
 
-    // Increment local counter
-    localCount++;
-    updateCounter(localCount);
+    // Log to SheetDB + refresh count
+    try {
+      await fetch(SHEETDB_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: [{
+          Name:          payload.name,
+          Contact:       payload.contact,
+          Dietary:       payload.diet,
+          Ride:          payload.ride,
+          Weekend:       payload.weekend,
+          Activity:      payload.activity,
+          Meals:         payload.meals,
+          Transport:     payload.transport,
+          'Van Confirm': payload.vanConfirm,
+          Timestamp:     payload.timestamp
+        }]})
+      });
+      await loadCount();
+    } catch(e) { console.log('SheetDB error:', e.message); }
 
     // Show confirmation + payment links
     btn.textContent = '✅ You\'re in!';
