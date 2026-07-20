@@ -816,81 +816,25 @@
   /* SVG mountains */
   .mountain-svg { fill: rgba(255,255,255,0.07); }
 
-  /* CAROUSEL */
-  .carousel-wrap {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  /* EXCURSION SIDE BY SIDE */
+  .excursion-side-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
     margin-top: 2.5rem;
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  .carousel-track-wrap {
-    overflow: hidden;
-    flex: 1;
-    border-radius: 18px;
-  }
+  @media (max-width: 700px) { .excursion-side-grid { grid-template-columns: 1fr; } }
 
-  .carousel-track {
-    display: flex;
-    transition: transform 0.4s ease;
-  }
-
-  .carousel-card {
-    min-width: 100%;
+  .excursion-side-card {
     background: white;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.2s;
   }
 
-  .carousel-img {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .carousel-body { padding: 1.5rem; }
-
-  .carousel-btn {
-    background: var(--forest);
-    color: var(--cream);
-    border: none;
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: background 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .carousel-btn:hover { background: var(--lake); }
-
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 1.25rem;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.15);
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .dot.active { background: var(--forest); transform: scale(1.3); }
+  .excursion-side-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
 
   /* HALLOWEEN */
   .halloween-section {
@@ -1010,7 +954,7 @@
   <div class="container">
     <span class="section-label">Lock it in</span>
     <h2 class="section-title">RSVP & Claim Your Spot</h2>
-    <p class="section-desc">Fill out the form below to officially claim your spot. We'll be in touch with trip details once we finalize the cabin!</p>
+    <p class="section-desc">Fill out the form below to officially claim your spot by August 15. We'll be in touch with trip details once we finalize the cabin!</p>
 
     <div class="rsvp-grid">
       <div class="rsvp-card">
@@ -1357,12 +1301,8 @@
     <h2 class="section-title">Excursions & Activities 🎯</h2>
     <p class="section-desc">Deep Creek is loaded — swipe through what we can get into while we're out there.</p>
 
-    <div class="carousel-wrap">
-      <button class="carousel-btn prev" onclick="slideCarousel(-1)">&#8592;</button>
-      <div class="carousel-track-wrap">
-        <div class="carousel-track" id="carousel-track">
-
-          <div class="carousel-card">
+    <div class="excursion-side-grid">
+      <div class="excursion-side-card">
             <div class="carousel-body">
               <p class="excursion-name">ATV Rentals</p>
               <p class="excursion-desc">Hit the mountain trails on ATVs — nothing but trees, dirt, and cousin energy. Perfect for a morning ride before we get the rest of the day started.</p>
@@ -1370,10 +1310,7 @@
                 <span class="excursion-tag tag-vibe">🔥 High Energy</span>
                 <span class="excursion-tag tag-type">Outdoor</span>
               </div>
-            </div>
-          </div>
-
-          <div class="carousel-card">
+      <div class="excursion-side-card">
             <div class="carousel-body">
               <p class="excursion-name">WISP Resort</p>
               <p class="excursion-desc">Mountain coaster, scenic chairlift, mini golf, and ropes course. Great mix of thrills and laughs — perfect for a full group day with passes that cover multiple rides.</p>
@@ -1382,10 +1319,7 @@
                 <span class="excursion-tag tag-rating">⭐ 4.5</span>
                 <span class="excursion-tag tag-type">Adventure</span>
               </div>
-            </div>
-          </div>
-
-          <div class="carousel-card">
+      <div class="excursion-side-card">
             <div class="carousel-body">
               <p class="excursion-name">Deep Creek Fun Zone</p>
               <p class="excursion-desc">Go-karts, laser tag, bumper boats, mini golf, and arcade — all in one spot. Staff is great with large groups and there's a restaurant on site. Rain plan approved.</p>
@@ -1394,17 +1328,6 @@
                 <span class="excursion-tag tag-rating">⭐ 4.3</span>
                 <span class="excursion-tag tag-type">Indoor/Out</span>
               </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <button class="carousel-btn next" onclick="slideCarousel(1)">&#8594;</button>
-    </div>
-    <div class="carousel-dots" id="carousel-dots">
-      <span class="dot active" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
     </div>
   </div>
 </section>
@@ -1582,16 +1505,6 @@
     card.querySelectorAll('.poll-option').forEach(o => o.classList.remove('selected'));
     el.classList.add('selected');
   }
-
-  // Carousel
-  let currentSlide = 0;
-  const totalSlides = 3;
-
-  function slideCarousel(dir) {
-    currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
-    goToSlide(currentSlide);
-  }
-
   function goToSlide(n) {
     currentSlide = n;
     document.getElementById('carousel-track').style.transform = `translateX(-${n * 100}%)`;
