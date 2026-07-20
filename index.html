@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cousins Take Deep Creek 🏔️</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a2a;
+    --lake: #2e6b8a;
+    --lake-light: #4a9cbd;
+    --sunrise: #f4a261;
+    --peach: #ffd6a5;
+    --cream: #fef9f0;
+    --bark: #5c3d2e;
+    --leaf: #52b788;
+    --leaf-light: #95d5b2;
+    --sky: #e0f4ff;
+    --gold: #e9c46a;
+    --warm-white: #fffbf4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--forest);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--forest);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 110%, #2e6b8a55, transparent),
+      radial-gradient(ellipse 60% 40% at 80% 20%, #52b78820, transparent),
+      radial-gradient(ellipse 50% 50% at 20% 80%, #f4a26115, transparent);
+  }
+
+  .mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    opacity: 0.18;
+  }
+
+  .stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 10% 15%, white, transparent),
+      radial-gradient(1px 1px at 25% 8%, white, transparent),
+      radial-gradient(2px 2px at 40% 20%, white, transparent),
+      radial-gradient(1px 1px at 55% 5%, white, transparent),
+      radial-gradient(1.5px 1.5px at 70% 12%, white, transparent),
+      radial-gradient(1px 1px at 85% 18%, white, transparent),
+      radial-gradient(2px 2px at 92% 7%, white, transparent),
+      radial-gradient(1px 1px at 15% 30%, white, transparent),
+      radial-gradient(1px 1px at 60% 28%, white, transparent),
+      radial-gradient(1.5px 1.5px at 78% 35%, white, transparent),
+      radial-gradient(1px 1px at 32% 40%, white, transparent),
+      radial-gradient(1px 1px at 48% 38%, white, transparent);
+    opacity: 0.6;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--leaf);
+    color: var(--forest);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 900;
+    color: var(--cream);
+    text-align: center;
+    line-height: 1.0;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero-title span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--leaf-light);
+    text-align: center;
+    margin-top: 1.2rem;
+    letter-spacing: 0.04em;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-details {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.7s 0.3s ease both;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-detail {
+    text-align: center;
+    color: var(--peach);
+  }
+
+  .hero-detail .label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--leaf-light);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .hero-detail .value {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .divider-dot { color: var(--lake-light); opacity: 0.4; align-self: center; }
+
+  .cta-btn {
+    display: inline-block;
+    margin-top: 2.5rem;
+    background: var(--sunrise);
+    color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.7s 0.4s ease both;
+    box-shadow: 0 4px 24px rgba(244,162,97,0.3);
+  }
+
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(244,162,97,0.45); }
+
+  /* SECTIONS */
+  section { padding: 5rem 1.5rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--leaf);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: #4a5e52;
+    max-width: 520px;
+    line-height: 1.75;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* RSVP SECTION */
+  .rsvp-section {
+    background: var(--forest);
+    color: var(--cream);
+  }
+
+  .rsvp-section .section-title { color: var(--cream); }
+  .rsvp-section .section-desc { color: var(--leaf-light); }
+
+  .rsvp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 700px) {
+    .rsvp-grid { grid-template-columns: 1fr; }
+    .airbnb-grid { grid-template-columns: 1fr !important; }
+    .excursion-grid { grid-template-columns: 1fr !important; }
+  }
+
+  .rsvp-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 2rem;
+  }
+
+  .rsvp-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-row { margin-bottom: 1.2rem; }
+
+  .form-row label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--leaf-light);
+    margin-bottom: 6px;
+  }
+
+  .form-row input, .form-row select {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-row input::placeholder { color: rgba(255,255,255,0.3); }
+  .form-row input:focus, .form-row select:focus { border-color: var(--leaf); }
+
+  .form-row select option { background: var(--forest); color: var(--cream); }
+
+  .pay-btn {
+    width: 100%;
+    background: var(--sunrise);
+    color: var(--forest);
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .pay-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(244,162,97,0.4); }
+
+  .deposit-note {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 0.75rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .pay-links { display: flex; flex-direction: column; gap: 10px; }
+
+  .pay-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--cream);
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .pay-link:hover { background: rgba(255,255,255,0.12); border-color: rgba(82,183,136,0.4); }
+
+  .pay-icon { font-size: 1.3rem; flex-shrink: 0; }
+
+  .pay-info { display: flex; flex-direction: column; flex: 1; }
+
+  .pay-info strong { font-size: 0.9rem; font-weight: 600; color: var(--cream); }
+
+  .pay-info span { font-size: 0.8rem; color: var(--leaf-light); }
+
+  .pay-arrow { font-size: 1rem; color: var(--leaf); margin-left: auto; }
+
+  .zelle-link { cursor: default; }
+  .zelle-link:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+
+  .rsvp-info h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(82,183,136,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .info-text strong {
+    display: block;
+    color: var(--cream);
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .info-text span {
+    font-size: 0.85rem;
+    color: var(--leaf-light);
+    line-height: 1.5;
+  }
+
+  .rsvp-counter {
+    background: rgba(82,183,136,0.12);
+    border: 1px solid rgba(82,183,136,0.25);
+    border-radius: 14px;
+    padding: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .counter-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--leaf-light);
+    margin-bottom: 8px;
+  }
+
+  .counter-bar-wrap {
+    background: rgba(255,255,255,0.08);
+    border-radius: 100px;
+    height: 8px;
+    margin: 8px 0;
+    overflow: hidden;
+  }
+
+  .counter-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--leaf), var(--gold));
+    border-radius: 100px;
+    width: 33%;
+    transition: width 1s ease;
+  }
+
+  .counter-nums {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--leaf-light);
+  }
+
+  .counter-nums strong { color: var(--gold); font-size: 1.1rem; }
+
+  /* AIRBNB SECTION */
+  .airbnb-section { background: var(--warm-white); }
+
+  .airbnb-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .cabin-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cabin-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+
+  .cabin-img {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    background: var(--lake);
+  }
+
+  .cabin-img-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cabin-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: white;
+    color: var(--forest);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .cabin-body { padding: 1.25rem; }
+
+  .cabin-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--forest);
+  }
+
+  .cabin-loc {
+    font-size: 0.8rem;
+    color: #6b7c74;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .cabin-stats {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .cabin-stat {
+    font-size: 0.75rem;
+    background: var(--sky);
+    color: var(--lake);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  .cabin-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 1rem;
+  }
+
+  .price-pp {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--forest);
+  }
+
+  .price-label { font-size: 0.75rem; color: #6b7c74; }
+
+  .cabin-rating {
+    font-size: 0.82rem;
+    color: var(--bark);
+    font-weight: 600;
+  }
+
+  .vote-btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.85rem;
+    text-align: center;
+    background: var(--forest);
+    color: var(--cream);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .vote-btn:hover { background: var(--lake); }
+  .vote-btn.voted { background: var(--leaf); }
+
+  /* EXCURSIONS */
+  .excursions-section { background: var(--sky); }
+
+  .excursion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .excursion-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.2s;
+  }
+
+  .excursion-card:hover { transform: translateY(-2px); }
+
+  .excursion-icon {
+    font-size: 1.8rem;
+    width: 52px;
+    height: 52px;
+    background: var(--cream);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .excursion-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 4px;
+  }
+
+  .excursion-desc {
+    font-size: 0.82rem;
+    color: #5a6e64;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .excursion-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .excursion-tag {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+
+  .tag-vibe { background: #fff3e0; color: #a0522d; }
+  .tag-rating { background: #e8f5e9; color: #2e7d32; }
+  .tag-type { background: #e3f2fd; color: #1565c0; }
+
+  /* POLL SECTION */
+  .poll-section { background: var(--cream); }
+
+  .poll-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 600px) { .poll-grid { grid-template-columns: 1fr; } }
+
+  .poll-card {
+    background: white;
+    border-radius: 18px;
+    padding: 1.75rem;
+    border: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .poll-q {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin-bottom: 1.25rem;
+  }
+
+  .poll-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border: 1.5px solid rgba(0,0,0,0.08);
+    transition: border-color 0.2s, background 0.2s;
+    font-size: 0.9rem;
+    color: var(--forest);
+  }
+
+  .poll-option:hover { border-color: var(--leaf); background: rgba(82,183,136,0.05); }
+  .poll-option.selected { border-color: var(--leaf); background: rgba(82,183,136,0.1); }
+
+  .poll-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .poll-option.selected .poll-dot { background: var(--leaf); border-color: var(--leaf); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--forest);
+    color: var(--leaf-light);
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .footer-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub { font-size: 0.88rem; opacity: 0.6; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SQUIGGLY DIVIDER */
+  .wave-divider { display: block; width: 100%; line-height: 0; }
+
+  /* SUCCESS MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal-box {
+    background: var(--forest);
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid rgba(82,183,136,0.3);
+  }
+
+  .modal-emoji { font-size: 3rem; margin-bottom: 1rem; display: block; }
+
+  .modal-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-msg { font-size: 0.95rem; color: var(--leaf-light); line-height: 1.7; }
+
+  .modal-close {
+    margin-top: 1.5rem;
+    background: var(--leaf);
+    color: var(--forest);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s;
+  }
+
+  nav.scrolled { background: rgba(26,58,42,0.97); backdrop-filter: blur(8px); }
+
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 1.5rem; }
+
+  .nav-links a {
+    color: var(--leaf-light);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+
+  .nav-rsvp {
+    background: var(--sunrise) !important;
+    color: var(--forest) !important;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-weight: 700 !important;
+  }
+
+  @media (max-width: 580px) { .nav-links { display: none; } }
+
+  /* SVG mountains */
+  .mountain-svg { fill: rgba(255,255,255,0.07); }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo">🏔 Deep Creek '26</a>
+  <div class="nav-links">
+    <a href="#stays">Stays</a>
+    <a href="#excursions">Excursions</a>
+    <a href="#rsvp" class="nav-rsvp">RSVP</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="stars"></div>
+  <svg class="mountains" viewBox="0 0 1440 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon class="mountain-svg" points="0,280 200,80 380,200 550,50 720,180 900,40 1100,160 1280,70 1440,140 1440,280"/>
+    <polygon class="mountain-svg" style="fill:rgba(255,255,255,0.04)" points="0,280 150,140 320,220 500,100 700,200 880,90 1060,190 1250,110 1440,170 1440,280"/>
+  </svg>
+
+  <span class="hero-badge">Deep Creek Lake, Maryland</span>
+  <h1 class="hero-title">The Cousins Take<br><span>Deep Creek</span></h1>
+  <p class="hero-subtitle">October 9–11, 2026 · Mountain magic, lake vibes, and cousin chaos ✨</p>
+
+  <div class="hero-details">
+    <div class="hero-detail">
+      <span class="label">Where</span>
+      <span class="value">McHenry, MD</span>
+    </div>
+    <span class="divider-dot">·</span>
+    <div class="hero-detail">
+      <span class="label">Who</span>
+      <span class="value">Oct 10–13, 2026</span>
+    </div>
+
+  </div>
+
+  <a href="#rsvp" class="cta-btn">Secure Your Spot 🏕️</a>
+</section>
+
+<!-- WAVE -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a3a2a" d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,0 L0,0 Z"/></svg>
+
+<!-- RSVP SECTION -->
+<section class="rsvp-section" id="rsvp">
+  <div class="container">
+    <span class="section-label">Lock it in</span>
+    <h2 class="section-title">RSVP & Claim Your Spot</h2>
+    <p class="section-desc">Fill out the form below to officially claim your spot. We'll be in touch with trip details once we finalize the cabin!</p>
+
+    <div class="rsvp-grid">
+      <div class="rsvp-card">
+        <h3>Count Me In! 🙌</h3>
+        <div class="form-row">
+          <label>Your Name</label>
+          <input type="text" id="rsvp-name" placeholder="First & Last Name" />
+        </div>
+        <div class="form-row">
+          <label>Phone / Email</label>
+          <input type="text" id="rsvp-contact" placeholder="How to reach you" />
+        </div>
+        <div class="form-row">
+          <label>Dietary / Needs</label>
+          <input type="text" id="rsvp-diet" placeholder="Allergies, accessibility, etc." />
+        </div>
+        <div class="form-row">
+          <label>Will you need a ride?</label>
+          <select id="rsvp-ride">
+            <option value="">— Select —</option>
+            <option>Nope, I'm driving!</option>
+            <option>Yes, I need a ride</option>
+            <option>I can take people with me</option>
+          </select>
+        </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,0.1); margin-top:1.5rem; padding-top:1.5rem;">
+          <p style="font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--leaf-light); margin-bottom:1.25rem;">Help Us Plan 🗳️</p>
+
+          <div class="form-row">
+            <label>🗓️ Can you make Columbus Day Weekend? (Oct 10–13)</label>
+            <select id="poll-weekend">
+              <option value="">— Select —</option>
+              <option value="yes">Yes, I'll be there! 🙌</option>
+              <option value="fri-sun">Fri–Sun only (can't do Monday)</option>
+              <option value="sat-mon">Sat–Mon only (can't do Friday)</option>
+              <option value="no">I can't make it this weekend 😢</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label>🏄 Must-do activity for you?</label>
+            <select id="poll-activity">
+              <option value="">— Select —</option>
+              <option>Whitewater Rafting</option>
+              <option>Kayaking / Nature Tour</option>
+              <option>Mountain Coaster at Wisp</option>
+              <option>Cabin day (games, grill, vibes)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label>🍽️ How should we handle meals?</label>
+            <select id="poll-meals">
+              <option value="">— Select —</option>
+              <option>Each cook one meal (group rotation)</option>
+              <option>Pool money and one person shops</option>
+              <option>Mix — cook some, eat out some</option>
+              <option>Every cousin fend for yourself lol</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label>🚗 How are you getting to Deep Creek?</label>
+            <select id="poll-transport" onchange="handleTransportChange(this.value)">
+              <option value="">— Select —</option>
+              <option value="self">I'm driving myself</option>
+              <option value="van">Meet in Maryland — ride together</option>
+            </select>
+          </div>
+
+          <div id="van-detail" style="display:none; background:rgba(82,183,136,0.1); border:1px solid rgba(82,183,136,0.25); border-radius:12px; padding:1rem; margin-top:-0.5rem; margin-bottom:1rem;">
+            <p style="font-size:0.85rem; color:var(--leaf-light); line-height:1.6; margin-bottom:0.75rem;">🚐 <strong style="color:var(--cream);">Van Share Option</strong> — If enough cousins are in, we'll rent a van and meet at a central Maryland spot. Cost will be split evenly based on headcount. You'll get the meetup details and your share of the cost once we confirm numbers.</p>
+            <div class="form-row" style="margin-bottom:0;">
+              <label>Are you in for the van?</label>
+              <select id="poll-van-confirm">
+                <option value="">— Select —</option>
+                <option value="yes">Yes, count me in for the van!</option>
+                <option value="maybe">Maybe — send me the cost first</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button class="pay-btn" onclick="handleRSVP()">
+          Claim My Spot 🏔️
+        </button>
+        <p class="deposit-note" id="submit-status">Hit submit to lock in your spot!</p>
+
+
+      </div>
+
+      <div class="rsvp-info">
+        <h3>What to expect after you RSVP</h3>
+
+        <div class="info-item">
+          <div class="info-icon">🏡</div>
+          <div class="info-text">
+            <strong>Cabin Vote</strong>
+            <span>Check out the cabin options below and cast your vote — majority wins!</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🛶</div>
+          <div class="info-text">
+            <strong>Excursion Planning</strong>
+            <span>Answer the planning questions in the RSVP form — your input shapes the trip!</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📲</div>
+          <div class="info-text">
+            <strong>Trip Details Incoming</strong>
+            <span>Once we lock in the cabin and dates, we'll reach out with the full breakdown.</span>
+          </div>
+        </div>
+
+        <div class="rsvp-counter">
+          <p class="counter-label">Cousins locked in so far</p>
+          <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:6px;">
+            <strong id="rsvp-count" style="color:var(--gold);font-family:'Fraunces',serif;font-size:2rem;">5</strong>
+            <span style="color:var(--leaf-light);font-size:0.88rem;">of 15 spots</span>
+          </div>
+          <div class="counter-bar-wrap">
+            <div class="counter-bar" id="counter-bar" style="width:33%"></div>
+          </div>
+          <div class="counter-nums">
+            <span>0</span>
+            <span>15 goal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a3a2a" d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z"/></svg>
+
+<!-- AIRBNB STAYS SECTION -->
+<section class="airbnb-section" id="stays">
+  <div class="container">
+    <span class="section-label">Where we're crashing</span>
+    <h2 class="section-title">Vote on a Cabin 🏕️</h2>
+    <p class="section-desc">All priced per person based on 15 people splitting the cost. Click a cabin to open it, then vote below!</p>
+
+    <div class="airbnb-grid">
+
+      <!-- Cabin 1 -->
+      <div class="cabin-card">
+        <div class="cabin-img" style="background: linear-gradient(135deg, #1a3a2a, #2e6b8a);">
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;">🏡</div>
+          <span class="cabin-badge">⭐ 4.9 · Top Pick</span>
+        </div>
+        <div class="cabin-body">
+          <p class="cabin-name">Lazy Bear Lodge</p>
+          <p class="cabin-loc">📍 Oakland, MD · 5 bed · Sleeps 13+</p>
+          <div class="cabin-stats">
+            <span class="cabin-stat">🛁 Hot tub</span>
+            <span class="cabin-stat">🎱 Game room</span>
+            <span class="cabin-stat">🔥 Fireplace</span>
+            <span class="cabin-stat">🦌 Nature views</span>
+          </div>
+          <div class="cabin-price-row">
+            <div>
+              <span class="price-pp">~$67</span>
+              <span class="price-label">/person/night*</span>
+            </div>
+            <span class="cabin-rating">⭐ 4.9 (56)</span>
+          </div>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJOagygsFVNYgRikjZ0w8r5TM" target="_blank" class="vote-btn" id="vote1" onclick="vote(1)">👍 Vote for This One</a>
+        </div>
+      </div>
+
+      <!-- Cabin 2 -->
+      <div class="cabin-card">
+        <div class="cabin-img" style="background: linear-gradient(135deg, #2e6b8a, #4a9cbd);">
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;">🌊</div>
+          <span class="cabin-badge">💧 On The Water</span>
+        </div>
+        <div class="cabin-body">
+          <p class="cabin-name">Sunset Village Lodge</p>
+          <p class="cabin-loc">📍 McHenry, MD · Lakeside access</p>
+          <div class="cabin-stats">
+            <span class="cabin-stat">🛁 Hot tub</span>
+            <span class="cabin-stat">🔥 Fireplace</span>
+            <span class="cabin-stat">🚣 Lake nearby</span>
+            <span class="cabin-stat">🌅 Sunsets</span>
+          </div>
+          <div class="cabin-price-row">
+            <div>
+              <span class="price-pp">~$55</span>
+              <span class="price-label">/person/night*</span>
+            </div>
+            <span class="cabin-rating">⭐ 4.6 (289)</span>
+          </div>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJc9IIhnKryokRCiAexuBoxmA" target="_blank" class="vote-btn" id="vote2" onclick="vote(2)">👍 Vote for This One</a>
+        </div>
+      </div>
+
+      <!-- Cabin 3 - Custom Search CTA -->
+      <div class="cabin-card">
+        <div class="cabin-img" style="background: linear-gradient(135deg, #52b788, #1a3a2a);">
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;">🔍</div>
+          <span class="cabin-badge">🌲 Search More</span>
+        </div>
+        <div class="cabin-body">
+          <p class="cabin-name">Find Your Own Pick</p>
+          <p class="cabin-loc">📍 Deep Creek Lake, MD area</p>
+          <div class="cabin-stats">
+            <span class="cabin-stat">15 guests</span>
+            <span class="cabin-stat">Full kitchen</span>
+            <span class="cabin-stat">Your call!</span>
+          </div>
+          <div class="cabin-price-row">
+            <div>
+              <span class="price-pp">~$50–90</span>
+              <span class="price-label">/person/night*</span>
+            </div>
+            <span class="cabin-rating">You decide!</span>
+          </div>
+          <a href="https://www.airbnb.com/s/Deep-Creek-Lake--McHenry--MD/homes?adults=15" target="_blank" class="vote-btn">🔗 Search Airbnb</a>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-size:0.78rem;color:#8a9e94;margin-top:1rem;">*Per-person pricing estimated for 15 guests, 2-night stay. Actual rates vary by availability and dates.</p>
+  </div>
+</section>
+
+<!-- EXCURSIONS SECTION -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#e0f4ff" d="M0,0 C240,50 480,0 720,30 C960,60 1200,10 1440,40 L1440,60 L0,60 Z" style="fill:#fef9f0"/></svg>
+
+<section class="excursions-section" id="excursions">
+  <div class="container">
+    <span class="section-label">Things to do</span>
+    <h2 class="section-title">Excursions & Activities 🎯</h2>
+    <p class="section-desc">Deep Creek is loaded — here's what we can get into while we're out there.</p>
+
+    <div class="excursion-grid">
+
+      <div class="excursion-card">
+        <div class="excursion-icon">🌊</div>
+        <div>
+          <p class="excursion-name">Adventure Sports Center</p>
+          <p class="excursion-desc">Whitewater rafting on a closed-loop course — go around as many times as you want. Great for groups and the reviews are RAVING. Full-body workout and full fun.</p>
+          <div class="excursion-tags">
+            <span class="excursion-tag tag-vibe">🔥 High Energy</span>
+            <span class="excursion-tag tag-rating">⭐ 4.6</span>
+            <span class="excursion-tag tag-type">Water</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="excursion-card">
+        <div class="excursion-icon">🦅</div>
+        <div>
+          <p class="excursion-name">All Earth Eco Tours</p>
+          <p class="excursion-desc">Kayaking on the Savage River Reservoir with bald eagle sightings. A 5.0 rated guide experience — perfect for the chill morning vibe before afternoon chaos.</p>
+          <div class="excursion-tags">
+            <span class="excursion-tag tag-vibe">✌️ Chill Vibes</span>
+            <span class="excursion-tag tag-rating">⭐ 5.0</span>
+            <span class="excursion-tag tag-type">Nature</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="excursion-card">
+        <div class="excursion-icon">🎢</div>
+        <div>
+          <p class="excursion-name">Wisp Mountain Park</p>
+          <p class="excursion-desc">Mountain coaster, scenic chairlift, mini golf, and ropes course. Great mix of thrills and laughs — perfect for a group day with a pass that covers multiple rides.</p>
+          <div class="excursion-tags">
+            <span class="excursion-tag tag-vibe">😄 Group Fun</span>
+            <span class="excursion-tag tag-rating">⭐ 4.5</span>
+            <span class="excursion-tag tag-type">Adventure</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="excursion-card">
+        <div class="excursion-icon">🎱</div>
+        <div>
+          <p class="excursion-name">Deep Creek Fun Zone</p>
+          <p class="excursion-desc">Go-karts, laser tag, bumper boats, mini golf, and arcade — all in one spot. Staff is great with large groups and there's a restaurant on site. Rain plan approved.</p>
+          <div class="excursion-tags">
+            <span class="excursion-tag tag-vibe">🌧️ Rain Plan</span>
+            <span class="excursion-tag tag-rating">⭐ 4.3</span>
+            <span class="excursion-tag tag-type">Indoor/Out</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-title">The Cousins Take Deep Creek 🏔️</p>
+  <p class="footer-sub">RSVP your spot · Vote on the cabin · Show up and show out</p>
+  <div style="margin-top:1.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a href="#rsvp" style="color:var(--gold);font-family:'Fraunces',serif;font-size:1rem;text-decoration:none;">RSVP →</a>
+    <a href="#stays" style="color:var(--leaf-light);font-size:0.9rem;text-decoration:none;">Cabin Picks</a>
+    <a href="#excursions" style="color:var(--leaf-light);font-size:0.9rem;text-decoration:none;">Excursions</a>
+    
+  </div>
+  <p style="margin-top:2rem;font-size:0.72rem;opacity:0.35;">Made with love for the fam 💚</p>
+</footer>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <span class="modal-emoji">🎉</span>
+    <h3 class="modal-title">You're locked in!</h3>
+    <p class="modal-msg" id="modal-msg">Thanks, <strong id="modal-name"></strong>! Your RSVP has been recorded. 🎉<br><br>Keep an eye out — we'll be in touch with cabin and trip details soon!</p>
+    <button class="modal-close" onclick="closeModal()">Let's GOOO 🏔️</button>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // CONFIGURATION — paste your Formspree form ID here
+  // e.g. if your form URL is formspree.io/f/xbjvkpqz, put 'xbjvkpqz'
+  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+  const RSVP_GOAL    = 15;
+  // ============================================================
+
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  let localCount = 0;
+
+  function updateCounter(count) {
+    const pct = Math.min(100, Math.round((count / RSVP_GOAL) * 100));
+    document.getElementById('rsvp-count').textContent = count;
+    document.getElementById('counter-bar').style.width = pct + '%';
+  }
+
+  // Submit RSVP
+  async function handleRSVP() {
+    const name    = document.getElementById('rsvp-name').value.trim();
+    const contact = document.getElementById('rsvp-contact').value.trim();
+    const diet    = document.getElementById('rsvp-diet').value.trim();
+    const ride    = document.getElementById('rsvp-ride').value;
+
+    if (!name || !contact) {
+      alert('Please fill in your name and contact info!');
+      return;
+    }
+
+    const btn = document.querySelector('.pay-btn');
+    btn.textContent = 'Submitting... ⏳';
+    btn.disabled = true;
+
+    const weekend    = document.getElementById('poll-weekend').value;
+    const vanConfirm = document.getElementById('poll-van-confirm') ? document.getElementById('poll-van-confirm').value : '';
+    const activity  = document.getElementById('poll-activity').value;
+    const meals     = document.getElementById('poll-meals').value;
+    const transport = document.getElementById('poll-transport').value;
+    const payload = { name, contact, diet, ride, weekend, activity, meals, transport, vanConfirm, timestamp: new Date().toLocaleString() };
+
+    // 1. Formspree → emails you each submission
+    if (FORMSPREE_ID !== 'YOUR_FORMSPREE_ID') {
+      try {
+        await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch(e) {}
+    }
+
+    // Increment local counter
+    localCount++;
+    updateCounter(localCount);
+
+    // Show confirmation + payment links
+    btn.textContent = '✅ You\'re in!';
+    document.getElementById('modal-name').textContent = name.split(' ')[0];
+    document.getElementById('modal').classList.add('active');
+
+    document.getElementById('submit-status').textContent = '✅ RSVP received! We\'ll be in touch soon.';
+    document.getElementById('submit-status').style.color = 'var(--leaf-light)';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+  }
+
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Cabin voting
+  let votedCabin = null;
+  function vote(n) {
+    if (votedCabin !== null) {
+      document.getElementById('vote' + votedCabin).classList.remove('voted');
+      document.getElementById('vote' + votedCabin).textContent = '👍 Vote for This One';
+    }
+    votedCabin = n;
+    const btn = document.getElementById('vote' + n);
+    btn.classList.add('voted');
+    btn.textContent = '✅ Your Vote!';
+    return false;
+  }
+
+  // Transport two-step
+  function handleTransportChange(val) {
+    const vanDetail = document.getElementById('van-detail');
+    if (val === 'van') {
+      vanDetail.style.display = 'block';
+    } else {
+      vanDetail.style.display = 'none';
+      const vanConfirm = document.getElementById('poll-van-confirm');
+      if (vanConfirm) vanConfirm.value = '';
+    }
+  }
+
+  // Poll selection
+  function togglePoll(el) {
+    const card = el.closest('.poll-card');
+    card.querySelectorAll('.poll-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+</script>
+</body>
+</html>
