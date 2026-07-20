@@ -417,6 +417,7 @@
   /* AIRBNB SECTION */
   .airbnb-section { background: var(--warm-white); }
 
+  /* VRBO CABIN CARDS */
   .airbnb-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -424,103 +425,138 @@
     margin-top: 2.5rem;
   }
 
+  @media (max-width: 900px) { .airbnb-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 580px) { .airbnb-grid { grid-template-columns: 1fr; } }
+
   .cabin-card {
     background: white;
     border-radius: 18px;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.07);
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
   }
 
   .cabin-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
 
-  .cabin-img {
-    height: 180px;
-    overflow: hidden;
+  .cabin-photo-placeholder {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     position: relative;
-    background: var(--lake);
   }
 
-  .cabin-img-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .cabin-photo-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
   }
 
-  .cabin-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: white;
-    color: var(--forest);
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 10px;
+  .cabin-vrbo-badge {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 14px;
     border-radius: 100px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: background 0.2s;
   }
 
-  .cabin-body { padding: 1.25rem; }
+  .cabin-vrbo-badge:hover { background: rgba(255,255,255,0.25); }
+
+  .cabin-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
 
   .cabin-name {
     font-family: 'Fraunces', serif;
     font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 4px;
     color: var(--forest);
+    margin-bottom: 2px;
   }
 
-  .cabin-loc {
-    font-size: 0.8rem;
-    color: #6b7c74;
+  .cabin-sub {
+    font-size: 0.78rem;
+    color: #8a9e94;
     margin-bottom: 1rem;
+  }
+
+  .cabin-specs {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .cabin-spec {
+    font-size: 0.82rem;
+    color: var(--forest);
     display: flex;
     align-items: center;
     gap: 4px;
   }
 
-  .cabin-stats {
+  .cabin-dual-price {
     display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+    align-items: stretch;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    overflow: hidden;
     margin-bottom: 1rem;
+    margin-top: auto;
   }
 
-  .cabin-stat {
-    font-size: 0.75rem;
-    background: var(--sky);
-    color: var(--lake);
-    padding: 3px 10px;
-    border-radius: 100px;
-    font-weight: 500;
-  }
-
-  .cabin-price-row {
+  .dual-price-block {
+    flex: 1;
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    padding-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 8px;
+    gap: 2px;
   }
 
-  .price-pp {
+  .dual-price-block:first-child { background: rgba(26,58,42,0.04); }
+  .dual-price-block:last-child { background: rgba(46,107,138,0.04); }
+
+  .dual-date {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7c74;
+  }
+
+  .dual-pp {
     font-family: 'Fraunces', serif;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--forest);
+    line-height: 1;
   }
 
-  .price-label { font-size: 0.75rem; color: #6b7c74; }
+  .dual-label {
+    font-size: 0.68rem;
+    color: #8a9e94;
+  }
 
-  .cabin-rating {
-    font-size: 0.82rem;
-    color: var(--bark);
-    font-weight: 600;
+  .dual-total {
+    font-size: 0.68rem;
+    color: #8a9e94;
+  }
+
+  .dual-divider {
+    width: 1px;
+    background: rgba(0,0,0,0.08);
   }
 
   .vote-btn {
     display: block;
     width: 100%;
-    margin-top: 0.85rem;
     text-align: center;
     background: var(--forest);
     color: var(--cream);
@@ -537,6 +573,7 @@
 
   .vote-btn:hover { background: var(--lake); }
   .vote-btn.voted { background: var(--leaf); }
+
 
   /* EXCURSIONS */
   .excursions-section { background: var(--sky); }
@@ -1109,167 +1146,6 @@
 
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a3a2a" d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z"/></svg>
 
-<!-- AIRBNB STAYS SECTION -->
-<section class="airbnb-section" id="stays">
-  <div class="container">
-    <span class="section-label">Where we're crashing</span>
-    <h2 class="section-title">Vote on a Cabin 🏕️</h2>
-    <p class="section-desc">All priced per person based on 15 people splitting the cost. Click a cabin to open it, then vote below!</p>
-
-    <div class="airbnb-grid">
-
-      <!-- Cabin 1 -->
-      <div class="cabin-card">
-        <div class="cabin-img" style="background: linear-gradient(135deg, #1a3a2a, #2e6b8a);">
-          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;">🏡</div>
-          <span class="cabin-badge">⭐ 4.9 · Top Pick</span>
-        </div>
-        <div class="cabin-body">
-          <p class="cabin-name">Lazy Bear Lodge</p>
-          <p class="cabin-loc">📍 Oakland, MD · 5 bed · Sleeps 13+</p>
-          <div class="cabin-stats">
-            <span class="cabin-stat">🛁 Hot tub</span>
-            <span class="cabin-stat">🎱 Game room</span>
-            <span class="cabin-stat">🔥 Fireplace</span>
-            <span class="cabin-stat">🦌 Nature views</span>
-          </div>
-          <div class="cabin-price-row">
-            <div>
-              <span class="price-pp">~$67</span>
-              <span class="price-label">/person/night*</span>
-            </div>
-            <span class="cabin-rating">⭐ 4.9 (56)</span>
-          </div>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJOagygsFVNYgRikjZ0w8r5TM" target="_blank" class="vote-btn" id="vote1" onclick="vote(1)">👍 Vote for This One</a>
-        </div>
-      </div>
-
-      <!-- Cabin 2 -->
-      <div class="cabin-card">
-        <div class="cabin-img" style="background: linear-gradient(135deg, #2e6b8a, #4a9cbd);">
-          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;">🌊</div>
-          <span class="cabin-badge">💧 On The Water</span>
-        </div>
-        <div class="cabin-body">
-          <p class="cabin-name">Sunset Village Lodge</p>
-          <p class="cabin-loc">📍 McHenry, MD · Lakeside access</p>
-          <div class="cabin-stats">
-            <span class="cabin-stat">🛁 Hot tub</span>
-            <span class="cabin-stat">🔥 Fireplace</span>
-            <span class="cabin-stat">🚣 Lake nearby</span>
-            <span class="cabin-stat">🌅 Sunsets</span>
-          </div>
-          <div class="cabin-price-row">
-            <div>
-              <span class="price-pp">~$55</span>
-              <span class="price-label">/person/night*</span>
-            </div>
-            <span class="cabin-rating">⭐ 4.6 (289)</span>
-          </div>
-          <a href="https://www.google.com/maps/place/?q=place_id:ChIJc9IIhnKryokRCiAexuBoxmA" target="_blank" class="vote-btn" id="vote2" onclick="vote(2)">👍 Vote for This One</a>
-        </div>
-      </div>
-
-      <!-- Cabin 3 - Custom Search CTA -->
-      <div class="cabin-card">
-        <div class="cabin-img" style="background: linear-gradient(135deg, #52b788, #1a3a2a);">
-          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;">🔍</div>
-          <span class="cabin-badge">🌲 Search More</span>
-        </div>
-        <div class="cabin-body">
-          <p class="cabin-name">Find Your Own Pick</p>
-          <p class="cabin-loc">📍 Deep Creek Lake, MD area</p>
-          <div class="cabin-stats">
-            <span class="cabin-stat">15 guests</span>
-            <span class="cabin-stat">Full kitchen</span>
-            <span class="cabin-stat">Your call!</span>
-          </div>
-          <div class="cabin-price-row">
-            <div>
-              <span class="price-pp">~$50–90</span>
-              <span class="price-label">/person/night*</span>
-            </div>
-            <span class="cabin-rating">You decide!</span>
-          </div>
-          <a href="https://www.airbnb.com/s/Deep-Creek-Lake--McHenry--MD/homes?adults=15" target="_blank" class="vote-btn">🔗 Search Airbnb</a>
-        </div>
-      </div>
-
-    </div>
-    <p style="font-size:0.78rem;color:#8a9e94;margin-top:1rem;">*Per-person pricing estimated for 15 guests, 2-night stay. Actual rates vary by availability and dates.</p>
-  </div>
-</section>
-
-<!-- EXCURSIONS SECTION -->
-<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#e0f4ff" d="M0,0 C240,50 480,0 720,30 C960,60 1200,10 1440,40 L1440,60 L0,60 Z" style="fill:#fef9f0"/></svg>
-
-<section class="excursions-section" id="excursions">
-  <div class="container">
-    <span class="section-label">Things to do</span>
-    <h2 class="section-title">Excursions & Activities 🎯</h2>
-    <p class="section-desc">Deep Creek is loaded — swipe through what we can get into while we're out there.</p>
-
-    <div class="carousel-wrap">
-      <button class="carousel-btn prev" onclick="slideCarousel(-1)">&#8592;</button>
-      <div class="carousel-track-wrap">
-        <div class="carousel-track" id="carousel-track">
-
-          <div class="carousel-card">
-            <div class="carousel-img" style="background:linear-gradient(135deg,#5c3d2e,#a0522d);">
-              <span style="font-size:3.5rem;">🏍️</span>
-            </div>
-            <div class="carousel-body">
-              <p class="excursion-name">ATV Rentals</p>
-              <p class="excursion-desc">Hit the mountain trails on ATVs — nothing but trees, dirt, and cousin energy. Perfect for a morning ride before we get the rest of the day started.</p>
-              <div class="excursion-tags">
-                <span class="excursion-tag tag-vibe">🔥 High Energy</span>
-                <span class="excursion-tag tag-type">Outdoor</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-card">
-            <div class="carousel-img" style="background:linear-gradient(135deg,#1a3a2a,#2e6b8a);">
-              <span style="font-size:3.5rem;">⛷️</span>
-            </div>
-            <div class="carousel-body">
-              <p class="excursion-name">WISP Resort</p>
-              <p class="excursion-desc">Mountain coaster, scenic chairlift, mini golf, and ropes course. Great mix of thrills and laughs — perfect for a full group day with passes that cover multiple rides.</p>
-              <div class="excursion-tags">
-                <span class="excursion-tag tag-vibe">😄 Group Fun</span>
-                <span class="excursion-tag tag-rating">⭐ 4.5</span>
-                <span class="excursion-tag tag-type">Adventure</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-card">
-            <div class="carousel-img" style="background:linear-gradient(135deg,#2e6b8a,#52b788);">
-              <span style="font-size:3.5rem;">🎱</span>
-            </div>
-            <div class="carousel-body">
-              <p class="excursion-name">Deep Creek Fun Zone</p>
-              <p class="excursion-desc">Go-karts, laser tag, bumper boats, mini golf, and arcade — all in one spot. Staff is great with large groups and there's a restaurant on site. Rain plan approved.</p>
-              <div class="excursion-tags">
-                <span class="excursion-tag tag-vibe">🌧️ Rain Plan</span>
-                <span class="excursion-tag tag-rating">⭐ 4.3</span>
-                <span class="excursion-tag tag-type">Indoor/Out</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <button class="carousel-btn next" onclick="slideCarousel(1)">&#8594;</button>
-    </div>
-    <div class="carousel-dots" id="carousel-dots">
-      <span class="dot active" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
-    </div>
-  </div>
-</section>
-
 <!-- HALLOWEEN SECTION -->
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a0a2e" d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"/></svg>
 
@@ -1299,6 +1175,252 @@
 </section>
 
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a0a2e" d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,0 L0,0 Z"/></svg>
+
+<!-- AIRBNB STAYS SECTION -->
+<section class="airbnb-section" id="stays">
+  <div class="container">
+    <span class="section-label">Where we're crashing</span>
+    <h2 class="section-title">Vote on a Cabin 🏕️</h2>
+    <p class="section-desc">All prices per person based on 15 people splitting the cost. Pick your fave!</p>
+
+    <div class="airbnb-grid">
+
+      <!-- Cabin 1 -->
+      <div class="cabin-card">
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #1a3a2a, #2e6b8a);">
+          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
+          <a href="https://www.vrbo.com/715096" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        </div>
+        <div class="cabin-body">
+          <p class="cabin-name">Cabin 1</p>
+          <p class="cabin-sub">Deep Creek Lake, MD</p>
+          <div class="cabin-specs">
+            <div class="cabin-spec">🛏️ <span>— beds</span></div>
+            <div class="cabin-spec">🛁 <span>— baths</span></div>
+            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          </div>
+          <div class="cabin-dual-price">
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 9–11</span>
+              <span class="dual-pp">$131.53</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,973 total)</span>
+            </div>
+            <div class="dual-divider"></div>
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 16–18</span>
+              <span class="dual-pp">$130.53</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,958 total)</span>
+            </div>
+          </div>
+          <button class="vote-btn" id="vote1" onclick="vote(1)">👍 Vote for This One</button>
+        </div>
+      </div>
+
+      <!-- Cabin 2 -->
+      <div class="cabin-card">
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #2e6b8a, #52b788);">
+          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
+          <a href="https://www.vrbo.com/3123712" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        </div>
+        <div class="cabin-body">
+          <p class="cabin-name">Cabin 2</p>
+          <p class="cabin-sub">Deep Creek Lake, MD</p>
+          <div class="cabin-specs">
+            <div class="cabin-spec">🛏️ <span>— beds</span></div>
+            <div class="cabin-spec">🛁 <span>— baths</span></div>
+            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          </div>
+          <div class="cabin-dual-price">
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 9–11</span>
+              <span class="dual-pp">$125.40</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,881 total)</span>
+            </div>
+            <div class="dual-divider"></div>
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 16–18</span>
+              <span class="dual-pp">$105.87</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,588 total)</span>
+            </div>
+          </div>
+          <button class="vote-btn" id="vote2" onclick="vote(2)">👍 Vote for This One</button>
+        </div>
+      </div>
+
+      <!-- Cabin 3 -->
+      <div class="cabin-card">
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #52b788, #1a3a2a);">
+          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
+          <a href="https://www.vrbo.com/715048" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        </div>
+        <div class="cabin-body">
+          <p class="cabin-name">Cabin 3</p>
+          <p class="cabin-sub">Deep Creek Lake, MD</p>
+          <div class="cabin-specs">
+            <div class="cabin-spec">🛏️ <span>— beds</span></div>
+            <div class="cabin-spec">🛁 <span>— baths</span></div>
+            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          </div>
+          <div class="cabin-dual-price">
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 9–11</span>
+              <span class="dual-pp">$129.20</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,938 total)</span>
+            </div>
+            <div class="dual-divider"></div>
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 16–18</span>
+              <span class="dual-pp">$121.20</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,818 total)</span>
+            </div>
+          </div>
+          <button class="vote-btn" id="vote3" onclick="vote(3)">👍 Vote for This One</button>
+        </div>
+      </div>
+
+      <!-- Cabin 4 -->
+      <div class="cabin-card">
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #5c3d2e, #2e6b8a);">
+          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
+          <a href="https://www.vrbo.com/812805" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        </div>
+        <div class="cabin-body">
+          <p class="cabin-name">Cabin 4</p>
+          <p class="cabin-sub">Deep Creek Lake, MD</p>
+          <div class="cabin-specs">
+            <div class="cabin-spec">🛏️ <span>— beds</span></div>
+            <div class="cabin-spec">🛁 <span>— baths</span></div>
+            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          </div>
+          <div class="cabin-dual-price">
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 9–11</span>
+              <span class="dual-pp">$123.60</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,854 total)</span>
+            </div>
+            <div class="dual-divider"></div>
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 16–18</span>
+              <span class="dual-pp">$107.73</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,616 total)</span>
+            </div>
+          </div>
+          <button class="vote-btn" id="vote4" onclick="vote(4)">👍 Vote for This One</button>
+        </div>
+      </div>
+
+      <!-- Cabin 5 -->
+      <div class="cabin-card">
+        <div class="cabin-photo-placeholder" style="background:linear-gradient(135deg, #1a3a2a, #52b788);">
+          <span class="cabin-photo-label">📸 Add photo from VRBO listing</span>
+          <a href="https://www.vrbo.com/3790919" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+        </div>
+        <div class="cabin-body">
+          <p class="cabin-name">Cabin 5</p>
+          <p class="cabin-sub">Deep Creek Lake, MD</p>
+          <div class="cabin-specs">
+            <div class="cabin-spec">🛏️ <span>— beds</span></div>
+            <div class="cabin-spec">🛁 <span>— baths</span></div>
+            <div class="cabin-spec">👥 <span>Sleeps —</span></div>
+          </div>
+          <div class="cabin-dual-price">
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 9–11</span>
+              <span class="dual-pp">$125.33</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,880 total)</span>
+            </div>
+            <div class="dual-divider"></div>
+            <div class="dual-price-block">
+              <span class="dual-date">Oct 16–18</span>
+              <span class="dual-pp">$120.00</span>
+              <span class="dual-label">per person</span>
+              <span class="dual-total">($1,800 total)</span>
+            </div>
+          </div>
+          <button class="vote-btn" id="vote5" onclick="vote(5)">👍 Vote for This One</button>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-size:0.78rem;color:#8a9e94;margin-top:1rem;">Pricing from VRBO for 15 guests, 2-night stay.</p>
+  </div>
+</section>
+
+<!-- EXCURSIONS SECTION -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#e0f4ff" d="M0,0 C240,50 480,0 720,30 C960,60 1200,10 1440,40 L1440,60 L0,60 Z" style="fill:#fef9f0"/></svg>
+
+<section class="excursions-section" id="excursions">
+  <div class="container">
+    <span class="section-label">Things to do</span>
+    <h2 class="section-title">Excursions & Activities 🎯</h2>
+    <p class="section-desc">Deep Creek is loaded — swipe through what we can get into while we're out there.</p>
+
+    <div class="carousel-wrap">
+      <button class="carousel-btn prev" onclick="slideCarousel(-1)">&#8592;</button>
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="carousel-track">
+
+          <div class="carousel-card">
+            <div class="carousel-img" style="background:linear-gradient(135deg,#5c3d2e,#a0522d); min-height:260px;">
+            </div>
+            <div class="carousel-body">
+              <p class="excursion-name">ATV Rentals</p>
+              <p class="excursion-desc">Hit the mountain trails on ATVs — nothing but trees, dirt, and cousin energy. Perfect for a morning ride before we get the rest of the day started.</p>
+              <div class="excursion-tags">
+                <span class="excursion-tag tag-vibe">🔥 High Energy</span>
+                <span class="excursion-tag tag-type">Outdoor</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <div class="carousel-img" style="background:linear-gradient(135deg,#1a3a2a,#2e6b8a); min-height:260px;">
+            </div>
+            <div class="carousel-body">
+              <p class="excursion-name">WISP Resort</p>
+              <p class="excursion-desc">Mountain coaster, scenic chairlift, mini golf, and ropes course. Great mix of thrills and laughs — perfect for a full group day with passes that cover multiple rides.</p>
+              <div class="excursion-tags">
+                <span class="excursion-tag tag-vibe">😄 Group Fun</span>
+                <span class="excursion-tag tag-rating">⭐ 4.5</span>
+                <span class="excursion-tag tag-type">Adventure</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <div class="carousel-img" style="background:linear-gradient(135deg,#2e6b8a,#52b788); min-height:260px;">
+            </div>
+            <div class="carousel-body">
+              <p class="excursion-name">Deep Creek Fun Zone</p>
+              <p class="excursion-desc">Go-karts, laser tag, bumper boats, mini golf, and arcade — all in one spot. Staff is great with large groups and there's a restaurant on site. Rain plan approved.</p>
+              <div class="excursion-tags">
+                <span class="excursion-tag tag-vibe">🌧️ Rain Plan</span>
+                <span class="excursion-tag tag-rating">⭐ 4.3</span>
+                <span class="excursion-tag tag-type">Indoor/Out</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="slideCarousel(1)">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="carousel-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+  </div>
+</section>
 
 
 <!-- FOOTER -->
