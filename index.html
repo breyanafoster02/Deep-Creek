@@ -1020,6 +1020,19 @@
           </div>
         </div>
 
+          <div class="form-row">
+            <label>🏕️ Which cabin are you feeling?</label>
+            <select id="poll-cabin" name="Cabin Preference">
+              <option value="">&#8212; Select &#8212;</option>
+              <option value="Cabin 1">Cabin 1</option>
+              <option value="Cabin 2">Cabin 2</option>
+              <option value="Cabin 3">Cabin 3</option>
+              <option value="Cabin 4">Cabin 4</option>
+              <option value="Cabin 5">Cabin 5</option>
+              <option value="No preference">No preference</option>
+            </select>
+          </div>
+
         <button class="pay-btn" onclick="handleRSVP()">
           Claim My Spot 🏔️
         </button>
@@ -1389,10 +1402,11 @@
 
     const weekend    = document.getElementById('poll-weekend').value;
     const vanConfirm = document.getElementById('poll-van-confirm') ? document.getElementById('poll-van-confirm').value : '';
+    const cabin     = document.getElementById('poll-cabin').value;
     const activity  = document.getElementById('poll-activity').value;
     const meals     = document.getElementById('poll-meals').value;
     const transport = document.getElementById('poll-transport').value;
-    const payload = { name, contact, diet, ride, weekend, activity, meals, transport, vanConfirm, timestamp: new Date().toLocaleString() };
+    const payload = { name, contact, diet, ride, weekend, activity, meals, transport, vanConfirm, cabin, timestamp: new Date().toLocaleString() };
 
     // 1. Formspree → emails you each submission
     if (FORMSPREE_ID !== 'YOUR_FORMSPREE_ID') {
@@ -1420,6 +1434,7 @@
           Meals:         payload.meals,
           Transport:     payload.transport,
           'Van Confirm': payload.vanConfirm,
+          'Cabin':       payload.cabin,
           Timestamp:     payload.timestamp
         }]})
       });
