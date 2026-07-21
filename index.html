@@ -942,19 +942,19 @@
         <h3>Count Me In! 🙌</h3>
         <div class="form-row">
           <label>Your Name</label>
-          <input type="text" id="rsvp-name" placeholder="First & Last Name" />
+          <input type="text" id="rsvp-name" name="Name" placeholder="First & Last Name" />
         </div>
         <div class="form-row">
           <label>Phone / Email</label>
-          <input type="text" id="rsvp-contact" placeholder="How to reach you" />
+          <input type="text" id="rsvp-contact" name="Contact" placeholder="How to reach you" />
         </div>
         <div class="form-row">
           <label>Dietary / Needs</label>
-          <input type="text" id="rsvp-diet" placeholder="Allergies, accessibility, etc." />
+          <input type="text" id="rsvp-diet" name="Dietary Needs" placeholder="Allergies, accessibility, etc." />
         </div>
         <div class="form-row">
           <label>Will you need a ride?</label>
-          <select id="rsvp-ride">
+          <select id="rsvp-ride" name="Need a Ride">
             <option value="">— Select —</option>
             <option>Nope, I'm driving!</option>
             <option>Yes, I need a ride</option>
@@ -967,7 +967,7 @@
 
           <div class="form-row">
             <label>🗓️ Which weekend works for you?</label>
-            <select id="poll-weekend">
+            <select id="poll-weekend" name="Weekend Preference">
               <option value="">— Select —</option>
               <option value="oct9-11">Oct 9–11 👍</option>
               <option value="oct16-18">Oct 16–18 👍</option>
@@ -978,7 +978,7 @@
 
           <div class="form-row">
             <label>🏄 Must-do activity for you?</label>
-            <select id="poll-activity">
+            <select id="poll-activity" name="Must-Do Activity">
               <option value="">— Select —</option>
               <option>Whitewater Rafting</option>
               <option>Kayaking / Nature Tour</option>
@@ -989,7 +989,7 @@
 
           <div class="form-row">
             <label>🍽️ How should we handle meals?</label>
-            <select id="poll-meals">
+            <select id="poll-meals" name="Meals Plan">
               <option value="">— Select —</option>
               <option>Each cook one meal (group rotation)</option>
               <option>Pool money and one person shops</option>
@@ -1000,7 +1000,7 @@
 
           <div class="form-row">
             <label>🚗 How are you getting to Deep Creek?</label>
-            <select id="poll-transport" onchange="handleTransportChange(this.value)">
+            <select id="poll-transport" name="Transportation" onchange="handleTransportChange(this.value)">
               <option value="">— Select —</option>
               <option value="self">I'm driving myself</option>
               <option value="van">Meet in Maryland — ride together</option>
@@ -1011,7 +1011,7 @@
             <p style="font-size:0.85rem; color:var(--leaf-light); line-height:1.6; margin-bottom:0.75rem;">🚐 <strong style="color:var(--cream);">Van Share Option</strong> — If enough cousins are in, we'll rent a van and meet at a central Maryland spot. Cost will be split evenly based on headcount. You'll get the meetup details and your share of the cost once we confirm numbers.</p>
             <div class="form-row" style="margin-bottom:0;">
               <label>Are you in for the van?</label>
-              <select id="poll-van-confirm">
+              <select id="poll-van-confirm" name="Van Confirm">
                 <option value="">— Select —</option>
                 <option value="yes">Yes, count me in for the van!</option>
                 <option value="maybe">Maybe — send me the cost first</option>
