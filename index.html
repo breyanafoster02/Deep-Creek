@@ -884,6 +884,358 @@
     50% { transform: translateY(-12px); }
   }
 
+
+  /* CONFIRMED CABIN */
+  .confirmed-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    align-items: start;
+  }
+
+  @media (max-width: 800px) { .confirmed-grid { grid-template-columns: 1fr; } }
+
+  .confirmed-cabin {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .confirmed-photo {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+  }
+
+  .confirmed-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .confirmed-link-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.92);
+    color: var(--forest);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+  }
+
+  .confirmed-details { padding: 1.5rem; }
+
+  .confirmed-stat-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .confirmed-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    color: var(--forest);
+    font-weight: 500;
+  }
+
+  .confirmed-price-box {
+    background: var(--forest);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .confirmed-price-inner {
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .confirmed-price-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--leaf-light);
+  }
+
+  .confirmed-price-amount {
+    font-family: "Fraunces", serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .confirmed-price-sub {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .confirmed-deadline {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.82rem;
+    color: var(--peach);
+    line-height: 1.6;
+  }
+
+  .confirmed-deadline strong { color: #ff6b35; }
+
+  /* PAYMENT PANEL */
+  .payment-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .payment-title {
+    font-family: "Fraunces", serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--forest);
+  }
+
+  .payment-desc {
+    font-size: 0.92rem;
+    color: #4a5e52;
+    margin-top: -0.5rem;
+  }
+
+  .payment-options { display: flex; flex-direction: column; gap: 12px; }
+
+  .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: white;
+    border: 1.5px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--forest);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .payment-option:hover { border-color: var(--leaf); box-shadow: 0 4px 16px rgba(82,183,136,0.15); }
+
+  .payment-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .payment-info { display: flex; flex-direction: column; flex: 1; }
+  .payment-info strong { font-size: 0.92rem; font-weight: 700; color: var(--forest); }
+  .payment-info span { font-size: 0.8rem; color: #6b7c74; }
+  .payment-arrow { font-size: 1rem; color: var(--leaf); }
+  .zelle-opt { cursor: default; }
+  .zelle-opt:hover { border-color: rgba(0,0,0,0.08); box-shadow: none; }
+
+  .grocery-link-box {
+    background: linear-gradient(135deg, rgba(82,183,136,0.1), rgba(46,107,138,0.1));
+    border: 1px solid rgba(82,183,136,0.25);
+    border-radius: 14px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .grocery-link-box p {
+    font-size: 0.88rem;
+    color: var(--forest);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .grocery-btn {
+    display: inline-block;
+    background: var(--leaf);
+    color: var(--forest);
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 10px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .grocery-btn:hover { background: var(--leaf-light); }
+
+  /* PAYMENT TRACKER */
+  .tracker-section {
+    margin-top: 3rem;
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  .tracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .tracker-title {
+    font-family: "Fraunces", serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--forest);
+    margin-top: 0.25rem;
+  }
+
+  .tracker-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    background: var(--forest);
+    color: var(--gold);
+    padding: 8px 18px;
+    border-radius: 100px;
+  }
+
+  #paid-count {
+    font-family: "Fraunces", serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+
+  .tracker-of { color: rgba(255,255,255,0.4); font-size: 0.9rem; }
+  #total-count { font-size: 1rem; font-weight: 600; color: var(--leaf-light); }
+  .tracker-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-left: 2px; }
+
+  .tracker-bar-wrap {
+    background: rgba(0,0,0,0.06);
+    border-radius: 100px;
+    height: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .tracker-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--leaf), var(--gold));
+    border-radius: 100px;
+    transition: width 0.8s ease;
+  }
+
+  .tracker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .tracker-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1.5px solid;
+  }
+
+  .tracker-card.paid {
+    background: rgba(82,183,136,0.08);
+    border-color: rgba(82,183,136,0.3);
+    color: #2d6a4f;
+  }
+
+  .tracker-card.unpaid {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.08);
+    color: #6b7c74;
+  }
+
+  .tracker-status { font-size: 1rem; }
+  .tracker-loading { color: #8a9e94; font-size: 0.88rem; grid-column: 1/-1; text-align: center; padding: 1rem; }
+
+  /* WHO'S COMING */
+  .whos-coming-section {
+    margin-top: 2rem;
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  .whos-coming-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .rsvp-total-badge {
+    background: var(--lake);
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 100px;
+  }
+
+  .whos-coming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .coming-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(26,58,42,0.04), rgba(46,107,138,0.04));
+    border: 1.5px solid rgba(26,58,42,0.08);
+  }
+
+  .coming-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--gold);
+    font-family: "Fraunces", serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .coming-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--forest);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 </style>
 </head>
 <body>
@@ -891,7 +1243,7 @@
 <nav id="navbar">
   <a href="#" class="nav-logo">🏔 Deep Creek '26</a>
   <div class="nav-links">
-    <a href="#stays">Stays</a>
+    <a href="#stays">Cabin 🏕️</a>
     <a href="#excursions">Excursions</a>
     <a href="#halloween">Halloween 🎃</a>
     <a href="#rsvp" class="nav-rsvp">RSVP</a>
@@ -945,8 +1297,8 @@
           <input type="text" id="rsvp-name" name="Name" placeholder="First & Last Name" />
         </div>
         <div class="form-row">
-          <label>Phone</label>
-          <input type="text" id="rsvp-contact" name="Contact" placeholder="Phone Number" />
+          <label>Phone / Email</label>
+          <input type="text" id="rsvp-contact" name="Contact" placeholder="How to reach you" />
         </div>
         <div class="form-row">
           <label>Dietary / Needs</label>
@@ -1117,157 +1469,101 @@
 
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a0a2e" d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,0 L0,0 Z"/></svg>
 
-<!-- AIRBNB STAYS SECTION -->
+<!-- CABIN CONFIRMED SECTION -->
 <section class="airbnb-section" id="stays">
   <div class="container">
-    <span class="section-label">Where we're crashing</span>
-    <h2 class="section-title">Vote on a Cabin 🏕️</h2>
-    <p class="section-desc">All prices per person based on 15 people splitting the cost. Pick your fave!</p>
+    <span class="section-label">🏕️ We’re staying here</span>
+    <h2 class="section-title">Cabin 1 — It’s Confirmed!</h2>
+    <p class="section-desc">The votes are in. We locked in Cabin 1 at Deep Creek Lake. Here’s everything you need to know and how to pay.</p>
 
-        <div class="airbnb-grid">
+    <div class="confirmed-grid">
 
-      <div class="cabin-card">
-        <div class="cabin-photo">
-          <img src="https://media.vrbo.com/lodging/22000000/21630000/21620700/21620605/f18cd221.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 1" />
-          <a href="https://www.vrbo.com/715096" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+      <!-- Cabin photo + details -->
+      <div class="confirmed-cabin">
+        <div class="confirmed-photo">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1335617567478434167/original/9e332629-3175-4896-befa-72df36d0f838.jpeg?im_w=1200" alt="Cabin 1" />
+          <a href="https://www.airbnb.com/rooms/1335617567478434167" target="_blank" class="confirmed-link-badge">View on Airbnb →</a>
         </div>
-        <div class="cabin-body">
-          <div>
-            <p class="cabin-name">Cabin 1</p>
-            <p class="cabin-sub">Deep Creek Lake, MD</p>
+        <div class="confirmed-details">
+          <div class="confirmed-stat-row">
+            <div class="confirmed-stat">🛏️ <span>5 Bedrooms</span></div>
+            <div class="confirmed-stat">🛁️ <span>5 Bathrooms</span></div>
+            <div class="confirmed-stat">👥 <span>Sleeps 12+</span></div>
           </div>
-          <div class="cabin-dual-price">
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 9–11</span>
-              <span class="dual-pp">$131.53</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,973 total)</span>
+          <div class="confirmed-price-box">
+            <div class="confirmed-price-inner">
+              <span class="confirmed-price-label">Cost per person</span>
+              <span class="confirmed-price-amount">$99.78</span>
+              <span class="confirmed-price-sub">based on 15 people · 2 nights</span>
             </div>
-            <div class="dual-divider"></div>
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 16–18</span>
-              <span class="dual-pp">$130.53</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,958 total)</span>
+            <div class="confirmed-deadline">
+              ⚠️ Payment due by <strong>September 20, 2026</strong><br/>
+              <span>Airbnb charges the full amount on 9/24 — do not be late!</span>
             </div>
           </div>
-          <button class="vote-btn" id="vote1" onclick="vote(1)">👍 Vote for This One</button>
         </div>
       </div>
-      <div class="cabin-card">
-        <div class="cabin-photo">
-          <img src="https://media.vrbo.com/lodging/90000000/89470000/89461800/89461721/b046fd01.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 2" />
-          <a href="https://www.vrbo.com/3123712" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+
+      <!-- Payment section -->
+      <div class="payment-panel">
+        <h3 class="payment-title">💸 Send Your Payment</h3>
+        <p class="payment-desc">Send <strong>$99.78</strong> to one of the options below. Put your name in the memo!</p>
+
+        <div class="payment-options">
+          <a class="payment-option" href="https://www.paypal.com/pool/9rH81VprV3?sr=wccr" target="_blank" style="border-color:rgba(0,48,135,0.2); background:linear-gradient(135deg, rgba(0,48,135,0.04), rgba(0,112,204,0.04));">
+            <div class="payment-icon" style="background:#003087;">
+              <span style="color:white;font-weight:800;font-size:1rem;">P</span>
+            </div>
+            <div class="payment-info">
+              <strong>PayPal Money Pool</strong>
+              <span>Click to contribute your $99.78</span>
+            </div>
+            <span class="payment-arrow">→</span>
+          </a>
         </div>
-        <div class="cabin-body">
-          <div>
-            <p class="cabin-name">Cabin 2</p>
-            <p class="cabin-sub">Deep Creek Lake, MD</p>
-          </div>
-          <div class="cabin-dual-price">
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 9–11</span>
-              <span class="dual-pp">$125.40</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,881 total)</span>
-            </div>
-            <div class="dual-divider"></div>
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 16–18</span>
-              <span class="dual-pp">$105.87</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,588 total)</span>
-            </div>
-          </div>
-          <button class="vote-btn" id="vote2" onclick="vote(2)">👍 Vote for This One</button>
+
+        <div class="grocery-link-box">
+          <p>🛒 We’re doing a mix of cooking and eating out. Add to the group grocery list!</p>
+          <a href="https://docs.google.com/spreadsheets/d/1BjfblwsjTWZVGvPM8eZ8jVqgr6RG3-tbvmNXCeJ0OmA/edit?gid=2043367269#gid=2043367269" target="_blank" class="grocery-btn">Add to Grocery List 📝</a>
         </div>
       </div>
-      <div class="cabin-card">
-        <div class="cabin-photo">
-          <img src="https://media.vrbo.com/lodging/22000000/21640000/21633400/21633379/82edcc8f.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 3" />
-          <a href="https://www.vrbo.com/715048" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
+
+    </div>
+
+    <!-- PAYMENT TRACKER -->
+    <div class="tracker-section">
+      <div class="tracker-header">
+        <div>
+          <span class="section-label" style="color:var(--leaf);">Live Updates</span>
+          <h3 class="tracker-title">Who’s Paid? 💰</h3>
         </div>
-        <div class="cabin-body">
-          <div>
-            <p class="cabin-name">Cabin 3</p>
-            <p class="cabin-sub">Deep Creek Lake, MD</p>
-          </div>
-          <div class="cabin-dual-price">
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 9–11</span>
-              <span class="dual-pp">$129.20</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,938 total)</span>
-            </div>
-            <div class="dual-divider"></div>
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 16–18</span>
-              <span class="dual-pp">$121.20</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,818 total)</span>
-            </div>
-          </div>
-          <button class="vote-btn" id="vote3" onclick="vote(3)">👍 Vote for This One</button>
+        <div class="tracker-summary">
+          <span id="paid-count">0</span><span class="tracker-of"> of </span><span id="total-count">0</span>
+          <span class="tracker-label">paid</span>
         </div>
       </div>
-      <div class="cabin-card">
-        <div class="cabin-photo">
-          <img src="https://media.vrbo.com/lodging/22000000/21870000/21866900/21866826/c6f1bf54.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 4" />
-          <a href="https://www.vrbo.com/812805" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
-        </div>
-        <div class="cabin-body">
-          <div>
-            <p class="cabin-name">Cabin 4</p>
-            <p class="cabin-sub">Deep Creek Lake, MD</p>
-          </div>
-          <div class="cabin-dual-price">
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 9–11</span>
-              <span class="dual-pp">$123.60</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,854 total)</span>
-            </div>
-            <div class="dual-divider"></div>
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 16–18</span>
-              <span class="dual-pp">$107.73</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,616 total)</span>
-            </div>
-          </div>
-          <button class="vote-btn" id="vote4" onclick="vote(4)">👍 Vote for This One</button>
-        </div>
+      <div class="tracker-bar-wrap">
+        <div class="tracker-bar" id="tracker-bar" style="width:0%"></div>
       </div>
-      <div class="cabin-card">
-        <div class="cabin-photo">
-          <img src="https://media.vrbo.com/lodging/102000000/101380000/101376100/101376066/c86b2327.jpg?impolicy=resizecrop&rw=1200&ra=fit" alt="Cabin 5" />
-          <a href="https://www.vrbo.com/3790919" target="_blank" class="cabin-vrbo-badge">View on VRBO →</a>
-        </div>
-        <div class="cabin-body">
-          <div>
-            <p class="cabin-name">Cabin 5</p>
-            <p class="cabin-sub">Deep Creek Lake, MD</p>
-          </div>
-          <div class="cabin-dual-price">
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 9–11</span>
-              <span class="dual-pp">$125.33</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,880 total)</span>
-            </div>
-            <div class="dual-divider"></div>
-            <div class="dual-price-block">
-              <span class="dual-date">Oct 16–18</span>
-              <span class="dual-pp">$120.00</span>
-              <span class="dual-label">per person</span>
-              <span class="dual-total">($1,800 total)</span>
-            </div>
-          </div>
-          <button class="vote-btn" id="vote5" onclick="vote(5)">👍 Vote for This One</button>
-        </div>
+      <div class="tracker-grid" id="tracker-grid">
+        <div class="tracker-loading">Loading payment status…</div>
       </div>
     </div>
-    <p style="font-size:0.78rem;color:#8a9e94;margin-top:1rem;">Pricing from VRBO for 15 guests, 2-night stay.</p>
+
+    <!-- WHO'S COMING -->
+    <div class="whos-coming-section">
+      <div class="whos-coming-header">
+        <div>
+          <span class="section-label" style="color:var(--lake);">The Crew</span>
+          <h3 class="tracker-title">Who's Coming 🙌🏾</h3>
+        </div>
+        <span id="rsvp-total-badge" class="rsvp-total-badge">0 RSVPs</span>
+      </div>
+      <div class="whos-coming-grid" id="whos-coming-grid">
+        <div class="tracker-loading">Loading the crew…</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1495,6 +1791,81 @@
     document.getElementById('carousel-track').style.transform = `translateX(-${n * 100}%)`;
     document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === n));
   }
+
+  // Payment Tracker - pulls from SheetDB
+  async function loadPaymentTracker() {
+    try {
+      const res = await fetch(SHEETDB_URL);
+      const rows = await res.json();
+      
+      const grid = document.getElementById('tracker-grid');
+      grid.innerHTML = '';
+
+      if (!rows || rows.length === 0) {
+        grid.innerHTML = '<div class="tracker-loading">No RSVPs yet!</div>';
+        return;
+      }
+
+      let paidCount = 0;
+      rows.forEach(row => {
+        const name = row['Name'] || row['name'] || 'Unknown';
+        const paid = (row['Paid'] || '').toLowerCase();
+        const isPaid = paid === 'yes' || paid === '\u2705' || paid === 'true' || paid === '1';
+        if (isPaid) paidCount++;
+
+        const card = document.createElement('div');
+        card.className = 'tracker-card ' + (isPaid ? 'paid' : 'unpaid');
+        card.innerHTML = \`<span class="tracker-status">\${isPaid ? '\u2705' : '\u23f3'}</span><span>\${name.split(' ')[0]}</span>\`;
+        grid.appendChild(card);
+      });
+
+      const total = rows.length;
+      document.getElementById('paid-count').textContent = paidCount;
+      document.getElementById('total-count').textContent = total;
+      const pct = total > 0 ? Math.round((paidCount / total) * 100) : 0;
+      document.getElementById('tracker-bar').style.width = pct + '%';
+
+    } catch(e) {
+      document.getElementById('tracker-grid').innerHTML = '<div class="tracker-loading">Could not load tracker.</div>';
+    }
+  }
+
+  async function loadWhoComing() {
+    try {
+      const res = await fetch(SHEETDB_URL);
+      const rows = await res.json();
+      const grid = document.getElementById('whos-coming-grid');
+      const badge = document.getElementById('rsvp-total-badge');
+      grid.innerHTML = '';
+
+      if (!rows || rows.length === 0) {
+        grid.innerHTML = '<div class="tracker-loading">No RSVPs yet — be the first!</div>';
+        return;
+      }
+
+      badge.textContent = rows.length + ' RSVP' + (rows.length !== 1 ? 's' : '');
+
+      rows.forEach(row => {
+        const full = row['Name'] || row['name'] || 'Guest';
+        const parts = full.trim().split(' ');
+        const first = parts[0] || '';
+        const lastInitial = parts[1] ? parts[1][0] + '.' : '';
+        const initial = first[0] ? first[0].toUpperCase() : '?';
+
+        const card = document.createElement('div');
+        card.className = 'coming-card';
+        card.innerHTML = \`<div class="coming-avatar">\${initial}</div><span class="coming-name">\${first} \${lastInitial}</span>\`;
+        grid.appendChild(card);
+      });
+    } catch(e) {
+      document.getElementById('whos-coming-grid').innerHTML = '<div class="tracker-loading">Could not load.</div>';
+    }
+  }
+
+  loadPaymentTracker();
+  loadWhoComing();
+  setInterval(loadPaymentTracker, 60000);
+  setInterval(loadWhoComing, 60000);
 </script>
 </body>
 </html>
