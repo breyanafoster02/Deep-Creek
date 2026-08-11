@@ -1157,7 +1157,6 @@
     <a href="#stays">Cabin 🏕️</a>
     <a href="#excursions">Excursions</a>
     <a href="#halloween">Halloween 🎃</a>
-    <a href="#rsvp" class="nav-rsvp">RSVP</a>
   </div>
 </nav>
 
@@ -1172,7 +1171,7 @@
 
   <span class="hero-badge">Deep Creek Lake, Maryland</span>
   <h1 class="hero-title">The Cousins Take<br><span>Deep Creek</span></h1>
-  <p class="hero-subtitle">Oct 16–18, 2026 · Mountain magic, lake vibes, and cousin chaos ✨</p>
+  <p class="hero-subtitle">October 16–18, 2026 · Mountain magic, lake vibes, and cousin chaos ✨</p>
 
   <div class="hero-details">
     <div class="hero-detail">
@@ -1187,166 +1186,9 @@
 
   </div>
 
-  <a href="#rsvp" class="cta-btn">Secure Your Spot 🏕️</a>
+  <a href="#stays" class="cta-btn">See the Cabin 🏕️</a>
 </section>
 
-<!-- WAVE -->
-<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a3a2a" d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,0 L0,0 Z"/></svg>
-
-<!-- RSVP SECTION -->
-<section class="rsvp-section" id="rsvp">
-  <div class="container">
-    <span class="section-label">Lock it in</span>
-    <h2 class="section-title">RSVP & Claim Your Spot</h2>
-    <p class="section-desc">Fill out the form below to officially claim your spot. We'll be in touch with trip details once we finalize the cabin!</p>
-
-    <div class="rsvp-grid">
-      <div class="rsvp-card">
-        <h3>Count Me In! 🙌</h3>
-        <div class="form-row">
-          <label>Your Name</label>
-          <input type="text" id="rsvp-name" name="Name" placeholder="First & Last Name" />
-        </div>
-        <div class="form-row">
-          <label>Phone / Email</label>
-          <input type="text" id="rsvp-contact" name="Contact" placeholder="How to reach you" />
-        </div>
-        <div class="form-row">
-          <label>Dietary / Needs</label>
-          <input type="text" id="rsvp-diet" name="Dietary Needs" placeholder="Allergies, accessibility, etc." />
-        </div>
-        <div class="form-row">
-          <label>Will you need a ride?</label>
-          <select id="rsvp-ride" name="Need a Ride">
-            <option value="">— Select —</option>
-            <option>Nope, I'm driving!</option>
-            <option>Yes, I need a ride</option>
-            <option>I can take people with me</option>
-          </select>
-        </div>
-
-        <div style="border-top:1px solid rgba(255,255,255,0.1); margin-top:1.5rem; padding-top:1.5rem;">
-          <p style="font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--leaf-light); margin-bottom:1.25rem;">Help Us Plan 🗳️</p>
-
-          <div class="form-row">
-            <label>🗓️ Which weekend works for you?</label>
-            <select id="poll-weekend" name="Weekend Preference">
-              <option value="">— Select —</option>
-              <option value="oct9-11">Oct 9–11 👍</option>
-              <option value="oct16-18">Oct 16–18 👍</option>
-              <option value="both">Either weekend works for me!</option>
-              <option value="neither">Neither weekend works 😢</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label>🏄 Must-do activity for you?</label>
-            <select id="poll-activity" name="Must-Do Activity">
-              <option value="">— Select —</option>
-              <option>Whitewater Rafting</option>
-              <option>Kayaking / Nature Tour</option>
-              <option>Mountain Coaster at Wisp</option>
-              <option>Cabin day (games, grill, vibes)</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label>🍽️ How should we handle meals?</label>
-            <select id="poll-meals" name="Meals Plan">
-              <option value="">— Select —</option>
-              <option>Each cook one meal (group rotation)</option>
-              <option>Pool money and one person shops</option>
-              <option>Mix — cook some, eat out some</option>
-              <option>Every cousin fend for yourself lol</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label>🚗 How are you getting to Deep Creek?</label>
-            <select id="poll-transport" name="Transportation" onchange="handleTransportChange(this.value)">
-              <option value="">— Select —</option>
-              <option value="self">I'm driving myself</option>
-              <option value="van">Meet in Maryland — ride together</option>
-            </select>
-          </div>
-
-          <div id="van-detail" style="display:none; background:rgba(82,183,136,0.1); border:1px solid rgba(82,183,136,0.25); border-radius:12px; padding:1rem; margin-top:-0.5rem; margin-bottom:1rem;">
-            <p style="font-size:0.85rem; color:var(--leaf-light); line-height:1.6; margin-bottom:0.75rem;">🚐 <strong style="color:var(--cream);">Van Share Option</strong> — If enough cousins are in, we'll rent a van and meet at a central Maryland spot. Cost will be split evenly based on headcount. You'll get the meetup details and your share of the cost once we confirm numbers.</p>
-            <div class="form-row" style="margin-bottom:0;">
-              <label>Are you in for the van?</label>
-              <select id="poll-van-confirm" name="Van Confirm">
-                <option value="">— Select —</option>
-                <option value="yes">Yes, count me in for the van!</option>
-                <option value="maybe">Maybe — send me the cost first</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-          <div class="form-row">
-            <label>🏕️ Which cabin are you feeling?</label>
-            <select id="poll-cabin" name="Cabin Preference">
-              <option value="">&#8212; Select &#8212;</option>
-              <option value="Cabin 1">Cabin 1</option>
-              <option value="Cabin 2">Cabin 2</option>
-              <option value="Cabin 3">Cabin 3</option>
-              <option value="Cabin 4">Cabin 4</option>
-              <option value="Cabin 5">Cabin 5</option>
-              <option value="No preference">No preference</option>
-            </select>
-          </div>
-
-        <button class="pay-btn" onclick="handleRSVP()">
-          Claim My Spot 🏔️
-        </button>
-        <p class="deposit-note" id="submit-status">Hit submit to lock in your spot!</p>
-
-
-      </div>
-
-      <div class="rsvp-info">
-        <h3>What to expect after you RSVP</h3>
-
-        <div class="info-item">
-          <div class="info-icon">🏡</div>
-          <div class="info-text">
-            <strong>Cabin Vote</strong>
-            <span>Check out the cabin options below and cast your vote — majority wins!</span>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon">🛶</div>
-          <div class="info-text">
-            <strong>Excursion Planning</strong>
-            <span>Answer the planning questions in the RSVP form — your input shapes the trip!</span>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon">📲</div>
-          <div class="info-text">
-            <strong>Trip Details Incoming</strong>
-            <span>Once we lock in the cabin and dates, we'll reach out with the full breakdown.</span>
-          </div>
-        </div>
-
-        <div class="rsvp-counter">
-          <p class="counter-label">Cousins locked in so far</p>
-          <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:6px;">
-            <strong id="rsvp-count" style="color:var(--gold);font-family:'Fraunces',serif;font-size:2rem;">5</strong>
-            <span style="color:var(--leaf-light);font-size:0.88rem;">of 15 spots</span>
-          </div>
-          <div class="counter-bar-wrap">
-            <div class="counter-bar" id="counter-bar" style="width:33%"></div>
-          </div>
-          <div class="counter-nums">
-            <span>0</span>
-            <span>15 goal</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a3a2a" d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z"/></svg>
 
@@ -1509,7 +1351,7 @@
   <p class="footer-title">The Cousins Take Deep Creek 🏔️</p>
   <p class="footer-sub">RSVP your spot · Vote on the cabin · Show up and show out</p>
   <div style="margin-top:1.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-    <a href="#rsvp" style="color:var(--gold);font-family:'Fraunces',serif;font-size:1rem;text-decoration:none;">RSVP →</a>
+    
     <a href="#stays" style="color:var(--leaf-light);font-size:0.9rem;text-decoration:none;">Cabin Picks</a>
     <a href="#excursions" style="color:var(--leaf-light);font-size:0.9rem;text-decoration:none;">Excursions</a>
     
@@ -1517,15 +1359,7 @@
   <p style="margin-top:2rem;font-size:0.72rem;opacity:0.35;">Made with love for the fam 💚</p>
 </footer>
 
-<!-- SUCCESS MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal-box">
-    <span class="modal-emoji">🎉</span>
-    <h3 class="modal-title">You're locked in!</h3>
-    <p class="modal-msg" id="modal-msg">Thanks, <strong id="modal-name"></strong>! Your RSVP has been recorded. 🎉<br><br>Keep an eye out — we'll be in touch with cabin and trip details soon!</p>
-    <button class="modal-close" onclick="closeModal()">Let's GOOO 🏔️</button>
-  </div>
-</div>
+
 
 <script>
   // ============================================================
@@ -1555,88 +1389,11 @@
     });
   });
 
-  function updateCounter(count) {
-    const pct = Math.min(100, Math.round((count / RSVP_GOAL) * 100));
-    document.getElementById('rsvp-count').textContent = count;
-    document.getElementById('counter-bar').style.width = pct + '%';
-  }
 
-  // Load real count from SheetDB
-  async function loadCount() {
-    try {
-      const res = await fetch(SHEETDB_URL + '/count');
-      const data = await res.json();
-      updateCounter(data.rows || 0);
-    } catch(e) { console.log('Count load skipped:', e.message); }
-  }
 
-  loadCount();
 
-  // Submit RSVP
-  async function handleRSVP() {
-    const name    = document.getElementById('rsvp-name').value.trim();
-    const contact = document.getElementById('rsvp-contact').value.trim();
-    const diet    = document.getElementById('rsvp-diet').value.trim();
-    const ride    = document.getElementById('rsvp-ride').value;
 
-    if (!name || !contact) {
-      alert('Please fill in your name and contact info!');
-      return;
-    }
 
-    const btn = document.querySelector('.pay-btn');
-    btn.textContent = 'Submitting... ⏳';
-    btn.disabled = true;
-
-    const weekend    = document.getElementById('poll-weekend').value;
-    const vanConfirm = document.getElementById('poll-van-confirm') ? document.getElementById('poll-van-confirm').value : '';
-    const cabin     = document.getElementById('poll-cabin').value;
-    const activity  = document.getElementById('poll-activity').value;
-    const meals     = document.getElementById('poll-meals').value;
-    const transport = document.getElementById('poll-transport').value;
-    const payload = { name, contact, diet, ride, weekend, activity, meals, transport, vanConfirm, cabin, timestamp: new Date().toLocaleString() };
-
-    // 1. Formspree → emails you each submission
-    if (FORMSPREE_ID !== 'YOUR_FORMSPREE_ID') {
-      try {
-        await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      } catch(e) {}
-    }
-
-    // Log to SheetDB + refresh count
-    try {
-      await fetch(SHEETDB_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data: [{
-          Name:          payload.name,
-          Contact:       payload.contact,
-          Dietary:       payload.diet,
-          Ride:          payload.ride,
-          Weekend:       payload.weekend,
-          Activity:      payload.activity,
-          Meals:         payload.meals,
-          Transport:     payload.transport,
-          'Van Confirm': payload.vanConfirm,
-          'Cabin':       payload.cabin,
-          Timestamp:     payload.timestamp
-        }]})
-      });
-      await loadCount();
-    } catch(e) { console.log('SheetDB error:', e.message); }
-
-    // Show confirmation + payment links
-    btn.textContent = '✅ You\'re in!';
-    document.getElementById('modal-name').textContent = name.split(' ')[0];
-    document.getElementById('modal').classList.add('active');
-
-    document.getElementById('submit-status').textContent = '✅ RSVP received! We\'ll be in touch soon.';
-    document.getElementById('submit-status').style.color = 'var(--leaf-light)';
-  }
 
   function closeModal() {
     document.getElementById('modal').classList.remove('active');
@@ -1660,24 +1417,9 @@
     return false;
   }
 
-  // Transport two-step
-  function handleTransportChange(val) {
-    const vanDetail = document.getElementById('van-detail');
-    if (val === 'van') {
-      vanDetail.style.display = 'block';
-    } else {
-      vanDetail.style.display = 'none';
-      const vanConfirm = document.getElementById('poll-van-confirm');
-      if (vanConfirm) vanConfirm.value = '';
-    }
-  }
 
-  // Poll selection
-  function togglePoll(el) {
-    const card = el.closest('.poll-card');
-    card.querySelectorAll('.poll-option').forEach(o => o.classList.remove('selected'));
-    el.classList.add('selected');
-  }
+
+
   function goToSlide(n) {
     currentSlide = n;
     document.getElementById('carousel-track').style.transform = `translateX(-${n * 100}%)`;
@@ -1708,7 +1450,7 @@
 
         const card = document.createElement('div');
         card.className = 'coming-card';
-        card.innerHTML = \`<div class="coming-avatar">\${initial}</div><span class="coming-name">\${first} \${lastInitial}</span>\`;
+        card.innerHTML = '<div class="coming-avatar">' + initial + '</div><span class="coming-name">' + first + ' ' + lastInitial + '</span>';
         grid.appendChild(card);
       });
     } catch(e) {
