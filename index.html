@@ -32,7 +32,8 @@
 
   /* HERO */
   .hero {
-    min-height: 100vh;
+    min-height: 420px;
+    padding: 4rem 2rem 3rem;
     background: var(--forest);
     position: relative;
     display: flex;
@@ -98,7 +99,7 @@
 
   .hero-title {
     font-family: 'Fraunces', serif;
-    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 900;
     color: var(--cream);
     text-align: center;
@@ -114,10 +115,10 @@
   }
 
   .hero-subtitle {
-    font-size: 1.05rem;
+    font-size: 0.92rem;
     color: var(--leaf-light);
     text-align: center;
-    margin-top: 1.2rem;
+    margin-top: 0.75rem;
     letter-spacing: 0.04em;
     position: relative;
     z-index: 2;
@@ -127,7 +128,7 @@
   .hero-details {
     display: flex;
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1.25rem;
     position: relative;
     z-index: 2;
     animation: fadeUp 0.7s 0.3s ease both;
@@ -159,7 +160,7 @@
 
   .cta-btn {
     display: inline-block;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     background: var(--sunrise);
     color: var(--forest);
     font-family: 'DM Sans', sans-serif;
@@ -1222,6 +1223,37 @@
 
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a0a2e" d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,0 L0,0 Z"/></svg>
 
+
+<!-- HALLOWEEN SECTION -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a0a2e" d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"/></svg>
+
+<section class="halloween-section" id="halloween">
+  <div class="container">
+    <div class="halloween-inner">
+      <div class="halloween-text">
+        <span class="section-label" style="color:#ff6b35;">The Main Event</span>
+        <h2 class="section-title" style="color:#fff;">Cabin Halloween Party 🎃</h2>
+        <p class="section-desc" style="color:#c9a0dc;">We're turning the cabin into a haunted hangout — and this is the move of the whole weekend. Costumes required, decorations mandatory, vibes immaculate.</p>
+        <div class="halloween-list">
+          <div class="halloween-item">👻 <span>Spooky playlist, curated and ready</span></div>
+          <div class="halloween-item">🍹 <span>Halloween themed drinks & snacks</span></div>
+          <div class="halloween-item">👑 <span>Best costume gets bragging rights forever</span></div>
+          <div class="halloween-item">📸 <span>Photo booth setup for the 'gram</span></div>
+        </div>
+        <p class="halloween-hype">Start planning your fit NOW. Don't be the cousin who shows up in regular clothes. 👀</p>
+      </div>
+      <div class="halloween-graphic">
+        <div class="pumpkin-display">🎃</div>
+        <div class="spook-icons">
+          <span>👻</span><span>🕷️</span><span>🦇</span><span>🕸️</span><span>🌙</span><span>⚰️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#1a0a2e" d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,0 L0,0 Z"/></svg>
+
 <!-- CABIN CONFIRMED SECTION -->
 <section class="airbnb-section" id="stays">
   <div class="container">
@@ -1246,8 +1278,8 @@
           <div class="confirmed-price-box">
             <div class="confirmed-price-inner">
               <span class="confirmed-price-label">Cost per person</span>
-              <span class="confirmed-price-amount">$99.78</span>
-              <span class="confirmed-price-sub">based on 15 people · 2 nights</span>
+              <span class="confirmed-price-amount">$115.13</span>
+              <span class="confirmed-price-sub">based on 13 people · 2 nights</span>
             </div>
             <div class="confirmed-deadline">
               ⚠️ Payment due by <strong>September 20, 2026</strong><br/>
@@ -1260,7 +1292,7 @@
       <!-- Payment section -->
       <div class="payment-panel">
         <h3 class="payment-title">💸 Send Your Payment</h3>
-        <p class="payment-desc">Send <strong>$99.78</strong> to one of the options below. Put your name in the memo!</p>
+        <p class="payment-desc">Send <strong>$115.13</strong> to one of the options below. Put your name in the memo!</p>
 
         <div class="payment-options">
           <a class="payment-option" href="https://www.paypal.com/pool/9rH81VprV3?sr=wccr" target="_blank" style="border-color:rgba(0,48,135,0.2); background:linear-gradient(135deg, rgba(0,48,135,0.04), rgba(0,112,204,0.04));">
@@ -1269,7 +1301,7 @@
             </div>
             <div class="payment-info">
               <strong>PayPal Money Pool</strong>
-              <span>Click to contribute your $99.78</span>
+              <span>Click to contribute your $115.13</span>
             </div>
             <span class="payment-arrow">→</span>
           </a>
@@ -1284,22 +1316,9 @@
     </div>
 
 
-        <!-- WHO'S COMING -->
-    <div class="whos-coming-section">
-      <div class="whos-coming-header">
-        <div>
-          <span class="section-label" style="color:var(--lake);">The Crew</span>
-          <h3 class="tracker-title">Who's Coming 🙌🏾</h3>
-        </div>
-        <span id="rsvp-total-badge" class="rsvp-total-badge">0 RSVPs</span>
       </div>
-      <div class="whos-coming-grid" id="whos-coming-grid">
-        <div class="tracker-loading">Loading the crew…</div>
-      </div>
-    </div>
-
-  </div>
 </section>
+
 
 <!-- EXCURSIONS SECTION -->
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="#e0f4ff" d="M0,0 C240,50 480,0 720,30 C960,60 1200,10 1440,40 L1440,60 L0,60 Z" style="fill:#fef9f0"/></svg>
@@ -1426,41 +1445,6 @@
     document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === n));
   }
 
-  async function loadWhoComing() {
-    try {
-      const res = await fetch(SHEETDB_URL);
-      const rows = await res.json();
-      const grid = document.getElementById('whos-coming-grid');
-      const badge = document.getElementById('rsvp-total-badge');
-      grid.innerHTML = '';
-
-      if (!rows || rows.length === 0) {
-        grid.innerHTML = '<div class="tracker-loading">No RSVPs yet — be the first!</div>';
-        return;
-      }
-
-      badge.textContent = rows.length + ' RSVP' + (rows.length !== 1 ? 's' : '');
-
-      rows.forEach(row => {
-        const full = row['Name'] || row['name'] || 'Guest';
-        const parts = full.trim().split(' ');
-        const first = parts[0] || '';
-        const lastInitial = parts[1] ? parts[1][0] + '.' : '';
-        const initial = first[0] ? first[0].toUpperCase() : '?';
-
-        const card = document.createElement('div');
-        card.className = 'coming-card';
-        card.innerHTML = '<div class="coming-avatar">' + initial + '</div><span class="coming-name">' + first + ' ' + lastInitial + '</span>';
-        grid.appendChild(card);
-      });
-    } catch(e) {
-      document.getElementById('whos-coming-grid').innerHTML = '<div class="tracker-loading">Could not load.</div>';
-    }
-  }
-
-
-    loadWhoComing();
-  setInterval(loadWhoComing, 60000);
 </script>
 </body>
 </html>
